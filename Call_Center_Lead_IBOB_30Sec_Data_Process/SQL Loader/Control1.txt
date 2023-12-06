@@ -1,0 +1,12 @@
+options  ( skip=1 )
+load data
+infile 'C:\Users\ManaRobot6\Documents\UiPath\Call_Center_Lead_IBOB_Process Automation\DataSetup\CSL Files\IB Answered.csv'
+append into table payu_rpa
+fields terminated by ","
+OPTIONALLY ENCLOSED BY '"'    
+TRAILING NULLCOLS
+(
+FROM_NO,AGENT_,GROUP_,CALL_DATE,DATE_,TIME_,DATE_TIME_PH,DISPOSITION,CALL_DURATION,SERVER
+)
+
+
