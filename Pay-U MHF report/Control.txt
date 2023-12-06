@@ -1,0 +1,12 @@
+options  ( skip=1 )
+load data
+infile 'C:\Users\ManaRobot6\Documents\UiPath\Pay-U MHF report\Data\Filtered_data\Out_data.csv'
+append into table payu_rpa
+fields terminated by ","
+OPTIONALLY ENCLOSED BY '"'    
+TRAILING NULLCOLS
+(
+TRANS_ID
+)
+
+
