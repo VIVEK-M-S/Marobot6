@@ -1,0 +1,368 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Mail" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:this="clr-namespace:" xmlns:u="clr-namespace:UiPathTeam;assembly=ExcelSheetToImage" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="Arg_Status" Type="InOutArgument(x:Boolean)" />
+    <x:Property Name="Input_Config" Type="InOutArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="mail_to" Type="InArgument(x:String)" />
+    <x:Property Name="mail_cc" Type="InArgument(x:String)" />
+    <x:Property Name="subject" Type="InArgument(x:String)" />
+    <x:Property Name="body" Type="InArgument(x:String)" />
+    <x:Property Name="attach_file" Type="InArgument(x:String)" />
+    <x:Property Name="image1" Type="InArgument(x:String)" />
+    <x:Property Name="image2" Type="InArgument(x:String)" />
+  </x:Members>
+  <this:Mail.mail_to>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Mail.mail_to>
+  <this:Mail.mail_cc>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Mail.mail_cc>
+  <this:Mail.subject>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Mail.subject>
+  <this:Mail.body>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Mail.body>
+  <this:Mail.attach_file>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Mail.attach_file>
+  <this:Mail.image1>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Mail.image1>
+  <this:Mail.image2>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Mail.image2>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>817,3527</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Mail_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="46">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>UiPath.Mail</x:String>
+      <x:String>UiPath.Mail.Outlook.Activities</x:String>
+      <x:String>UiPath.Mail.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="54">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap:VirtualizedContainerService.HintSize="671,3462" sap2010:WorkflowViewState.IdRef="Sequence_6">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd1:Image" Name="image1" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="629,3370" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+      <TryCatch.Try>
+        <Sequence sap:VirtualizedContainerService.HintSize="591,3143" sap2010:WorkflowViewState.IdRef="Sequence_7">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="x:String" Name="Folder_Path" />
+            <Variable x:TypeArguments="x:String" Name="Img_file" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:KillProcess AppliesTo="{x:Null}" ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="549,132" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="excel" />
+          <ui:GetEnvironmentFolder DisplayName="Get Environment Folder" FolderPath="[Folder_Path]" sap:VirtualizedContainerService.HintSize="549,61" sap2010:WorkflowViewState.IdRef="GetEnvironmentFolder_1" SpecialFolder="MyDocuments" />
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="549,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Mail Process Started&quot;]" />
+          <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="549,2647" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" InstanceCachePeriod="3000" WorkbookPath="[Folder_path+Input_Config(&quot;NCAReport_path&quot;).ToString]">
+            <ui:ExcelApplicationScope.Body>
+              <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+                </ActivityAction.Argument>
+                <Sequence sap:VirtualizedContainerService.HintSize="515,2538" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:String" Name="img_data1" />
+                    <Variable x:TypeArguments="x:String" Name="Img_file1" />
+                    <Variable x:TypeArguments="x:String" Name="img_data" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="473,2215" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="sd:DataTable" Name="zone" />
+                      <Variable x:TypeArguments="ui:GenericValue" Name="ROW_COUNT" />
+                      <Variable x:TypeArguments="sd:DataTable" Name="region" />
+                      <Variable x:TypeArguments="ui:GenericValue" Name="REGION_COUNT" />
+                      <Variable x:TypeArguments="sd1:Image" Name="image" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:ExcelReadRange AddHeaders="True" DataTable="[zone]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="431,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_2" SheetName="ZONE">
+                      <ui:ExcelReadRange.Range>
+                        <InArgument x:TypeArguments="x:String">
+                          <Literal x:TypeArguments="x:String" Value="" />
+                        </InArgument>
+                      </ui:ExcelReadRange.Range>
+                    </ui:ExcelReadRange>
+                    <Assign sap:VirtualizedContainerService.HintSize="431,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="ui:GenericValue">[ROW_COUNT]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="ui:GenericValue">[zone.Rows.count+2]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <u:ExcelSheetToImage ExcelPassword="{x:Null}" DisplayName="Excel Sheet To Image" ExcelFilePath="[Folder_path+Input_Config(&quot;NCAReport_path&quot;).ToString]" ExcelSheetName="ZONE" sap:VirtualizedContainerService.HintSize="431,84" sap2010:WorkflowViewState.IdRef="ExcelSheetToImage_1" ImageFilePath="[&quot;C:\Users\&quot;+Environment.UserName+&quot;\Documents\UiPath\DIGITAL MARKETING NCA REPORT AUTOMATION\Reports\Zone_img.jpeg&quot;]" ResultImage="[image]" SheetRange="[&quot;A1:H&quot;+ROW_COUNT]" />
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="431,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Zone Excel Converted to Image&quot;]" />
+                    <Assign sap2010:Annotation.AnnotationText="Image convert to Base 64" sap:VirtualizedContainerService.HintSize="431,91" sap2010:WorkflowViewState.IdRef="Assign_3">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[Img_file]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[Convert.ToBase64String(System.IO.File.ReadAllBytes( "C:\Users\"+Environment.UserName+"\Documents\UiPath\DIGITAL MARKETING NCA REPORT AUTOMATION\Reports\Zone_img.jpeg".ToString))]</InArgument>
+                      </Assign.Value>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </Assign>
+                    <Assign sap2010:Annotation.AnnotationText="Base 64 convert to image file" sap:VirtualizedContainerService.HintSize="431,91" sap2010:WorkflowViewState.IdRef="Assign_4">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[img_data]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">["&lt;img src=""data:image/jpeg;base64,"+ Img_file+ """align='left'/&gt;"]</InArgument>
+                      </Assign.Value>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </Assign>
+                    <ui:ExcelReadRange AddHeaders="True" DataTable="[region]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="431,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_3" SheetName="REGION">
+                      <ui:ExcelReadRange.Range>
+                        <InArgument x:TypeArguments="x:String">
+                          <Literal x:TypeArguments="x:String" Value="" />
+                        </InArgument>
+                      </ui:ExcelReadRange.Range>
+                    </ui:ExcelReadRange>
+                    <Assign sap:VirtualizedContainerService.HintSize="431,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="ui:GenericValue">[REGION_COUNT]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="ui:GenericValue">[region.Rows.Count+1]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <u:ExcelSheetToImage ExcelPassword="{x:Null}" DisplayName="Excel Sheet To Image" ExcelFilePath="[Folder_path+Input_Config(&quot;NCAReport_path&quot;).ToString]" ExcelSheetName="REGION" sap:VirtualizedContainerService.HintSize="431,84" sap2010:WorkflowViewState.IdRef="ExcelSheetToImage_2" ImageFilePath="[&quot;C:\Users\&quot;+Environment.UserName+&quot;\Documents\UiPath\DIGITAL MARKETING NCA REPORT AUTOMATION\Reports\Region_img.jpeg&quot;]" ResultImage="[image1]" SheetRange="[&quot;A1:H&quot;+REGION_COUNT]" />
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="431,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Region Excel Converted to Image&quot;]" />
+                    <Assign sap2010:Annotation.AnnotationText="Image convert to Base 64" sap:VirtualizedContainerService.HintSize="431,91" sap2010:WorkflowViewState.IdRef="Assign_5">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[Img_file1]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[Convert.ToBase64String(System.IO.File.ReadAllBytes( "C:\Users\"+Environment.UserName+"\Documents\UiPath\DIGITAL MARKETING NCA REPORT AUTOMATION\Reports\Region_img.jpeg".ToString))]</InArgument>
+                      </Assign.Value>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </Assign>
+                    <Assign sap2010:Annotation.AnnotationText="Base 64 convert to image file" sap:VirtualizedContainerService.HintSize="431,91" sap2010:WorkflowViewState.IdRef="Assign_6">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[img_data1]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">["&lt;img src=""data:image/jpeg;base64,"+Img_file1+"""align='left'/&gt;"]</InArgument>
+                      </Assign.Value>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </Assign>
+                    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,224" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                      <ui:MultipleAssign.AssignOperations>
+                        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">[mail_to]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String">[Input_Config("Mail_To").ToString]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">[mail_cc]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String">[Input_Config("Mail_Cc").ToString]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">[subject]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String">[Input_Config("Mail_Sub").ToString+System.DateTime.Now.ToString("@ hh:mm tt").ToString]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">[body]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String">[Input_Config("Mail_Body").ToString+img_data+"&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;"+img_data1]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">[attach_file]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String">["C:\Users\"+Environment.UserName+"\Documents\UiPath\DIGITAL MARKETING NCA REPORT AUTOMATION\Reports\NCA REPORT.xlsx"]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                        </scg:List>
+                      </ui:MultipleAssign.AssignOperations>
+                    </ui:MultipleAssign>
+                    <ui:KillProcess AppliesTo="{x:Null}" ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="431,132" sap2010:WorkflowViewState.IdRef="KillProcess_2" ProcessName="excel" />
+                    <ui:InvokeCode ContinueOnError="{x:Null}" Code="        Try &#xD;&#xA;            Dim Smtp_Server As New SmtpClient&#xD;&#xA;            Dim e_mail As New MailMessage()&#xD;&#xA;            Smtp_Server.UseDefaultCredentials = False&#xD;&#xA;            Smtp_Server.Credentials = New Net.NetworkCredential(&quot;marobot2@manappuram.com&quot;, &quot;Mafil@8877&quot;)&#xD;&#xA;            Smtp_Server.Port = 587&#xD;&#xA;            Smtp_Server.EnableSsl = True&#xD;&#xA;            Smtp_Server.Host = &quot;smtp.office365.com&quot;&#xD;&#xA;&#xD;&#xA;            e_mail = New MailMessage()&#xD;&#xA;            e_mail.From = New MailAddress(&quot;marobot2@manappuram.com&quot;)&#xD;&#xA;            e_mail.To.Add(Mail_To)&#xD;&#xA;       e_mail.CC.Add(Mail_CC)&#xD;&#xA;            e_mail.Subject =subject&#xD;&#xA;            e_mail.IsBodyHtml = True&#xD;&#xA;            e_mail.Body = body&#xD;&#xA;                  Dim attach_file1 As String=report1&#xD;&#xA;                '  Dim attach_file2 As String=reports2&#xD;&#xA;                  'Dim data As Net.Mail.Attachment = New Net.Mail.Attachment(attach_file1,attach_file2)&#xD;&#xA;                  e_mail.Attachments.Add(New Net.Mail.Attachment(attach_file1))&#xD;&#xA;            '_mail.Attachments.Add(New Net.Mail.Attachment(attach_file2))&#xD;&#xA;            Smtp_Server.Send(e_mail)&#xD;&#xA;&#xD;&#xA;        Catch error_t As Exception&#xD;&#xA;          ''MsgBox(error_t.ToString)&#xD;&#xA;        End Try&#xD;&#xA;" DisplayName="Invoke code" sap:VirtualizedContainerService.HintSize="431,164" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+                      <ui:InvokeCode.Arguments>
+                        <InOutArgument x:TypeArguments="x:String" x:Key="Mail_To">[mail_to]</InOutArgument>
+                        <InOutArgument x:TypeArguments="x:String" x:Key="Mail_CC">[mail_cc]</InOutArgument>
+                        <InOutArgument x:TypeArguments="x:String" x:Key="subject">[subject]</InOutArgument>
+                        <InOutArgument x:TypeArguments="x:String" x:Key="body">[body]</InOutArgument>
+                        <InOutArgument x:TypeArguments="x:String" x:Key="report1">[attach_file]</InOutArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="image1">[img_data]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="image2">[img_data1]</InArgument>
+                      </ui:InvokeCode.Arguments>
+                    </ui:InvokeCode>
+                    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="431,51" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                      <ui:CommentOut.Body>
+                        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,237" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:SendOutlookMail Bcc="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Account="[Input_Config(&quot;Mail_From&quot;).ToString]" Body="[Input_Config(&quot;Mail_Body&quot;).ToString+img_data+&quot;&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&quot;+img_data1]" Cc="[Input_Config(&quot;Mail_Cc&quot;).ToString]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" Importance="Normal" IsBodyHtml="True" IsDraft="False" Sensitivity="Normal" Subject="[Input_Config(&quot;Mail_Sub&quot;).ToString+System.DateTime.Now.ToString(&quot;@ hh:mm tt&quot;).ToString]" To="[Input_Config(&quot;Mail_To&quot;).ToString]">
+                            <ui:SendOutlookMail.Files>
+                              <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+                                <InArgument x:TypeArguments="x:String">["C:\Users\"+Environment.UserName+"\Documents\UiPath\DIGITAL MARKETING NCA REPORT AUTOMATION\Reports\NCA REPORT.xlsx"]</InArgument>
+                              </scg:List>
+                            </ui:SendOutlookMail.Files>
+                          </ui:SendOutlookMail>
+                        </Sequence>
+                      </ui:CommentOut.Body>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:CommentOut>
+                  </Sequence>
+                  <Assign sap:VirtualizedContainerService.HintSize="473,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Boolean">[Arg_Status]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="473,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Mail Successfully&quot;]" />
+                </Sequence>
+              </ActivityAction>
+            </ui:ExcelApplicationScope.Body>
+          </ui:ExcelApplicationScope>
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="595,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+  </Sequence>
+</Activity>
