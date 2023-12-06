@@ -1,0 +1,186 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Upload_Navigation" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="Arg_Status" Type="InOutArgument(x:Boolean)" />
+    <x:Property Name="Input_config" Type="InOutArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>863,2216</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Upload_Navigation_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="48">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Upload_Navigation" sap:VirtualizedContainerService.HintSize="596,2151" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="534,2029" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Try>
+        <Sequence sap:VirtualizedContainerService.HintSize="496,1792" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Navigation Process Start&quot;]" />
+          <Delay Duration="00:00:10" sap:VirtualizedContainerService.HintSize="434,97" sap2010:WorkflowViewState.IdRef="Delay_2" />
+          <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Firefox: Manappuram AppSuite" sap:VirtualizedContainerService.HintSize="434,1141" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" ScopeGuid="3bbdf689-739f-4e2b-80cd-49790363ad98" Version="V2">
+            <uix:NApplicationCard.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="400,915" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ClickType="Single" DisplayName="Click 'ESEC_UPLOAD'" sap:VirtualizedContainerService.HintSize="338,166" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="3bbdf689-739f-4e2b-80cd-49790363ad98" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="https://feebased.manappuram.net/HOAPPS/index/Index.aspx" DesignTimeRectangle="8, 436, 250, 50" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'ESEC_UPLOAD'" FullSelectorArgument="&lt;webctrl aaname='ESEC_UPLOAD  ' parentid='nav' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='ESEC_UPLOAD  ' parentid='nav' tag='A' type='' class='' check:innerText='ESEC_UPLOAD' /&gt;" Guid="9c2cc604-b1bf-4b9e-b1bc-7ab29a2b2867" ImageBase64="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" InformativeScreenshot="d2965878400e157e4c277c042aed96a3.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='Manappuram AppSuite' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Click On ESEC_UPLOAD&quot;]" />
+                  <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="338,97" sap2010:WorkflowViewState.IdRef="Delay_1" />
+                  <uix:NClick ClickType="Single" DisplayName="Click 'EXCEL UPLOAD'" sap:VirtualizedContainerService.HintSize="338,166" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="3bbdf689-739f-4e2b-80cd-49790363ad98" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="https://feebased.manappuram.net/HOAPPS/index/Index.aspx" DesignTimeRectangle="8, 531, 250, 44" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'EXCEL UPLOAD'" FullSelectorArgument="&lt;webctrl aaname='EXCEL UPLOAD ' href='../po/po_branch.aspx' parentid='nav' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='EXCEL UPLOAD ' href='../po/po_branch.aspx' parentid='nav' tag='A' type='' class='' check:innerText='EXCEL UPLOAD' /&gt;" Guid="540047b1-2711-4548-ad17-87c584080fb1" ImageBase64="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" InformativeScreenshot="08418678e8cc6fce8f39bdb6516e8e97.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='Manappuram AppSuite' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Click on EXCEL UPLOAD&quot;]" />
+                </Sequence>
+              </ActivityAction>
+            </uix:NApplicationCard.Body>
+            <uix:NApplicationCard.TargetApp>
+              <uix:TargetApp Area="-8, -8, 1382, 744" BrowserType="Firefox" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAZtQTFRF/90A/94A/dwA5cgN6swI6csH5McN8tID5scCi344gXQshXcvh3o16coD89MDr50tfnVFb2lUZGJkZWNkaWNOfHI+qpgpqpYdbWtqVVJVLyssMS0uWFZYZmRkqZUY99YBtKErdnFfcW5uXltcTUlKSkdHU1BRbmxsdW9Vt6Mp/9wA2r4Mg3lIdXJ2qKanu7q6s7Gyg4CBbWtuenBC1bkMz7QNdnBUb21weHV2TUpLdHFycW9ydm5O1rsM/tUC/9YB1rQPloIwenJaZmRoVVJTWVZXb25xdW1Ukn8w1bMP/cQF/cQE5bIIgnVRcGdYbWppbWpob2ZUhHdP5rMH+7II/LII86wKwo8ivYgTbGFRcWZTxY4TxZEh8qwJ/LMI+qEL+6EL9p4JzIgTbmJRc2VQ04wS+J8J+I8O+ZAO44YSn3hGioBzeHd4Z2VndWlaoXc/6YkS9n4S+H4R0HEcg3ZukHRgnWpDmmY+h2hSgXBm2XQc9GwW9WwW6GcXy2Ei5WcY82sUzmIi62kX81wZ9F0Z9l0Y810Z9V0Y////nQesUQAAAAFiS0dEiGtmFloAAAAJcEhZcwAACvAAAArwAUKsNJgAAADYSURBVBjTY2AAA0YgYEAARiZmFlY2JoQQOwcnFzcPLx+Mz8QvICgkLCIqxgRTIC4hKSUtIysnDxVQUFRSVlFVU9fQ1IIIaOvo6ukbGBoZm0DtMDUzt7C0tLK2sQXZY2dn7+Do5Ozi6ubu4WlvZ8fg5eXl7ePr5x8QGBTsDeQwhISEhIaFR0RGRcfExgE5DPFAkJCYlJySmpYAYjOkp6dnZGZl5+Tm5RdkADkMhYWFRcUlpWXlFZVVRUAOQ3V1dU1tXX1DQ21jUw2Qw9AMBC2tLW1tLe0tIDYA51M6FsHC89sAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTctMTItMTlUMDM6Mjc6MDcrMDA6MDCWc2ldAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDE3LTEyLTE5VDAzOjI3OjA3KzAwOjAw5y7R4QAAABF0RVh0anBlZzpjb2xvcnNwYWNlADIsdVWfAAAAIHRFWHRqcGVnOnNhbXBsaW5nLWZhY3RvcgAxeDEsMXgxLDF4MemV/HAAAABGdEVYdHNvZnR3YXJlAEltYWdlTWFnaWNrIDYuNy44LTkgMjAxNC0wNS0xMiBRMTYgaHR0cDovL3d3dy5pbWFnZW1hZ2ljay5vcmfchu0AAAAAGHRFWHRUaHVtYjo6RG9jdW1lbnQ6OlBhZ2VzADGn/7svAAAAGHRFWHRUaHVtYjo6SW1hZ2U6OmhlaWdodAAxOTIPAHKFAAAAF3RFWHRUaHVtYjo6SW1hZ2U6OldpZHRoADE5MtOsIQgAAAAZdEVYdFRodW1iOjpNaW1ldHlwZQBpbWFnZS9wbmc/slZOAAAAF3RFWHRUaHVtYjo6TVRpbWUAMTUxMzY1NDAyN/tJVb4AAAAPdEVYdFRodW1iOjpTaXplADBCQpSiPuwAAABWdEVYdFRodW1iOjpVUkkAZmlsZTovLy9tbnRsb2cvZmF2aWNvbnMvMjAxNy0xMi0xOS9lNmY4MGQ0MzVlZTMwZWNkNDkxOTQxM2IwYmQ1YzY1ZC5pY28ucG5ncoQnZgAAAABJRU5ErkJggg==" InformativeScreenshot="f2ff8650bed28e2bf15619940dbf5126.png" Selector="&lt;html app='firefox.exe' title='Manappuram AppSuite' /&gt;" Url="https://feebased.manappuram.net/HOAPPS/index/Index.aspx" />
+            </uix:NApplicationCard.TargetApp>
+          </uix:NApplicationCard>
+          <Assign sap:VirtualizedContainerService.HintSize="434,70" sap2010:WorkflowViewState.IdRef="Assign_1">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Boolean">[Arg_Status]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+            </Assign.Value>
+          </Assign>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,101" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Navigation Completed Successfully&quot;]" />
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="500,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence sap:VirtualizedContainerService.HintSize="400,333" sap2010:WorkflowViewState.IdRef="Sequence_4">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Assign sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_2">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Boolean">[Arg_Status]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                </Assign.Value>
+              </Assign>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Error" Message="[exception.Message]" />
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+  </Sequence>
+</Activity>
