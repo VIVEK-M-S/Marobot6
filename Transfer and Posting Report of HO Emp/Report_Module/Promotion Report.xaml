@@ -1,0 +1,212 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Promotion_Report" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:si="clr-namespace:System.IO;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="Out_Config" Type="InOutArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="Folder_path" Type="InOutArgument(x:String)" />
+    <x:Property Name="Arg_Status" Type="InOutArgument(x:Boolean)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>929,1424</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Promotion_Report_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="66">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.Database</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Database.Activities</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Database</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.Database.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices.RuntimeInformation</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Promotion_Report" sap:VirtualizedContainerService.HintSize="939,1359" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="Promotion_Data" />
+      <Variable x:TypeArguments="x:String" Name="dte" />
+      <Variable x:TypeArguments="x:String" Name="yesterday" />
+      <Variable x:TypeArguments="x:String" Name="Dte_1" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="877,1237" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Try>
+        <Sequence sap:VirtualizedContainerService.HintSize="462,1000" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="400,101" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Promotion Data Process Started&quot;]" />
+          <Sequence sap:VirtualizedContainerService.HintSize="400,385" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:ExecuteQuery ContinueOnError="{x:Null}" ExistingDbConnection="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" ConnectionString="Dsn=RPA_RO;uid=RPA_RO;pwd=Robot#123" DataTable="[Promotion_Data]" DisplayName="Run query" sap:VirtualizedContainerService.HintSize="338,98" sap2010:WorkflowViewState.IdRef="ExecuteQuery_2" ProviderName="System.Data.Odbc" Sql="---Promotion data from apr 2022 to till date&#xD;&#xA;select distinct t1.emp_code,&#xD;&#xA;       e.emp_name,&#xD;&#xA;       t1.from_dt     present_date,&#xD;&#xA;       a1.branch_id   present_branch_id,&#xD;&#xA;       b1.BRANCH_NAME present_branch_name,&#xD;&#xA;       t1.basic_pay   present_basic,&#xD;&#xA;       d1.designation present_designation,&#xD;&#xA;       p1.post_name   present_post,&#xD;&#xA;       g1.grade       present_grade,&#xD;&#xA;       de1.dep_name   present_department,&#xD;&#xA;       t2.from_dt     previous_date,&#xD;&#xA;       a2.branch_id   previous_branch_id,&#xD;&#xA;       b2.BRANCH_NAME  previous_branch_name,&#xD;&#xA;       t2.basic_pay   previous_basic,&#xD;&#xA;       d2.designation previous_designation,&#xD;&#xA;       p2.post_name   previous_post,&#xD;&#xA;       g2.grade       previous_grade,&#xD;&#xA;       de2.dep_name   previous_department&#xD;&#xA;  from mana0809.employ_promotion_dtl t1,&#xD;&#xA;       mana0809.employee_master      e,&#xD;&#xA;       mana0809.employ_promotion_dtl t2,&#xD;&#xA;       mana0809.designation_master   d1,&#xD;&#xA;       mana0809.designation_master   d2,&#xD;&#xA;       mana0809.employ_transfer_dtl  a1,&#xD;&#xA;       mana0809.employ_transfer_dtl  a2,&#xD;&#xA;       mana0809.post_mst             p1,&#xD;&#xA;       mana0809.post_mst             p2,&#xD;&#xA;       mana0809.grade_master         g1,&#xD;&#xA;       mana0809.grade_master         g2,&#xD;&#xA;       mana0809.department_mst       de1,&#xD;&#xA;       mana0809.department_mst       de2,&#xD;&#xA;       mana0809.branch_dtl_new       b1,&#xD;&#xA;       mana0809.branch_dtl_new       b2&#xD;&#xA; where t1.emp_code = e.emp_code&#xD;&#xA;   and t1.emp_code = t2.emp_code&#xD;&#xA;   and t1.designation_id = d1.designation_id&#xD;&#xA;   and t2.designation_id = d2.designation_id&#xD;&#xA;   and t1.emp_code=a1.emp_code&#xD;&#xA;   and t2.emp_code=a2.emp_code&#xD;&#xA;   and t1.from_dt = a1.from_dt&#xD;&#xA;   and t2.to_dt = a2.to_dt&#xD;&#xA;   and a1.post_id = p1.post_id&#xD;&#xA;   and a2.post_id = p2.post_id&#xD;&#xA;   and t1.grade_id=g1.grade_id&#xD;&#xA;   and t2.grade_id=g2.grade_id&#xD;&#xA;   and a1.department_id=de1.dep_id&#xD;&#xA;   and a2.department_id=de2.dep_id&#xD;&#xA;   and a1.branch_id=b1.BRANCH_ID&#xD;&#xA;   and a2.branch_id=b2.BRANCH_ID&#xD;&#xA;   and a1.status_id = 8&#xD;&#xA;   and a2.status_id = 8&#xD;&#xA;   and t2.to_dt = (t1.from_dt - 1)&#xD;&#xA;   and t1.status_id = 7&#xD;&#xA;   ---and t1.from_dt &gt;= '01-oct-2022'&#xD;&#xA;   and t1.from_dt &lt;= trunc(sysdate)&#xD;&#xA;  and t1.from_dt = trunc(sysdate)-1-- between '01-jan-2022' and '31-aug-2022'\&#xD;&#xA;   and (a1.branch_id=0 or a2.branch_id=0)&#xD;&#xA;   and (t1.to_dt&lt;&gt; t2.to_dt or t1.to_dt is null)&#xD;&#xA;   order by t1.emp_code,t1.from_dt&#xD;&#xA;">
+              <ui:ExecuteQuery.Parameters>
+                <InArgument x:TypeArguments="x:String" x:Key="yesterday">[yesterday]</InArgument>
+              </ui:ExecuteQuery.Parameters>
+            </ui:ExecuteQuery>
+            <ui:WriteRange AddHeaders="True" DataTable="[Promotion_Data]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="338,125" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Promotion Details" StartingCell="A1" WorkbookPath="[Folder_path+Out_Config(&quot;Promotion&quot;).ToString]" />
+          </Sequence>
+          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="400,61" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+            <ui:CommentOut.Body>
+              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="462,212" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Sequence sap:VirtualizedContainerService.HintSize="400,90" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_2">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[Dte_1]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[Date.Now.DayOfWeek.ToString]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <If Condition="[Dte_1=&quot;Monday&quot;]" sap:VirtualizedContainerService.HintSize="338,61" sap2010:WorkflowViewState.IdRef="If_1">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If.Then>
+                      <Sequence sap:VirtualizedContainerService.HintSize="400,385" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:ExecuteQuery ContinueOnError="{x:Null}" ExistingDbConnection="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" ConnectionString="Dsn=RPA_RO;uid=RPA_RO;pwd=Robot#123" DataTable="[Promotion_Data]" DisplayName="Run query" sap:VirtualizedContainerService.HintSize="338,98" sap2010:WorkflowViewState.IdRef="ExecuteQuery_3" ProviderName="System.Data.Odbc" Sql="---Promotion data from apr 2022 to till date&#xA;select distinct t1.emp_code,&#xA;       e.emp_name,&#xA;       t1.from_dt     present_date,&#xA;       a1.branch_id   present_branch_id,&#xA;       b1.BRANCH_NAME present_branch_name,&#xA;       t1.basic_pay   present_basic,&#xA;       d1.designation present_designation,&#xA;       p1.post_name   present_post,&#xA;       g1.grade       present_grade,&#xA;       de1.dep_name   present_department,&#xA;       t2.from_dt     previous_date,&#xA;       a2.branch_id   previous_branch_id,&#xA;       b2.BRANCH_NAME  previous_branch_name,&#xA;       t2.basic_pay   previous_basic,&#xA;       d2.designation previous_designation,&#xA;       p2.post_name   previous_post,&#xA;       g2.grade       previous_grade,&#xA;       de2.dep_name   previous_department&#xA;  from mana0809.employ_promotion_dtl t1,&#xA;       mana0809.employee_master      e,&#xA;       mana0809.employ_promotion_dtl t2,&#xA;       mana0809.designation_master   d1,&#xA;       mana0809.designation_master   d2,&#xA;       mana0809.employ_transfer_dtl  a1,&#xA;       mana0809.employ_transfer_dtl  a2,&#xA;       mana0809.post_mst             p1,&#xA;       mana0809.post_mst             p2,&#xA;       mana0809.grade_master         g1,&#xA;       mana0809.grade_master         g2,&#xA;       mana0809.department_mst       de1,&#xA;       mana0809.department_mst       de2,&#xA;       mana0809.branch_dtl_new       b1,&#xA;       mana0809.branch_dtl_new       b2&#xA; where t1.emp_code = e.emp_code&#xA;   and t1.emp_code = t2.emp_code&#xA;   and t1.designation_id = d1.designation_id&#xA;   and t2.designation_id = d2.designation_id&#xA;   and t1.emp_code=a1.emp_code&#xA;   and t2.emp_code=a2.emp_code&#xA;   and t1.from_dt = a1.from_dt&#xA;   and t2.to_dt = a2.to_dt&#xA;   and a1.post_id = p1.post_id&#xA;   and a2.post_id = p2.post_id&#xA;   and t1.grade_id=g1.grade_id&#xA;   and t2.grade_id=g2.grade_id&#xA;   and a1.department_id=de1.dep_id&#xA;   and a2.department_id=de2.dep_id&#xA;   and a1.branch_id=b1.BRANCH_ID&#xA;   and a2.branch_id=b2.BRANCH_ID&#xA;   and a1.status_id = 8&#xA;   and a2.status_id = 8&#xA;   and t2.to_dt = (t1.from_dt - 1)&#xA;   and t1.status_id = 7&#xA;   --and t1.from_dt &gt;= '01-oct-2022'&#xA;   and t1.from_dt &lt;= trunc(sysdate)&#xA;  and t1.from_dt = trunc(sysdate)-2-- between '01-jan-2022' and '31-aug-2022'\&#xA;   and (a1.branch_id=0 or a2.branch_id=0)&#xA;   and (t1.to_dt&lt;&gt; t2.to_dt or t1.to_dt is null)&#xA;   order by t1.emp_code,t1.from_dt&#xA;">
+                          <ui:ExecuteQuery.Parameters>
+                            <InArgument x:TypeArguments="x:String" x:Key="yesterday">[yesterday]</InArgument>
+                          </ui:ExecuteQuery.Parameters>
+                        </ui:ExecuteQuery>
+                        <ui:WriteRange AddHeaders="True" DataTable="[Promotion_Data]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="338,125" sap2010:WorkflowViewState.IdRef="WriteRange_3" SheetName="Promotion Details" StartingCell="A1" WorkbookPath="[Folder_path+Out_Config(&quot;Promotion&quot;).ToString]" />
+                      </Sequence>
+                    </If.Then>
+                  </If>
+                </Sequence>
+              </Sequence>
+            </ui:CommentOut.Body>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:CommentOut>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="400,101" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Promotion Data Process Completed&quot;]" />
+          <Assign sap:VirtualizedContainerService.HintSize="400,70" sap2010:WorkflowViewState.IdRef="Assign_1">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Boolean">[Arg_Status]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="si:IOException" sap:VirtualizedContainerService.HintSize="843,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="si:IOException">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="si:IOException" Name="exception" />
+            </ActivityAction.Argument>
+            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Boolean">[Arg_Status]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+              </Assign.Value>
+            </Assign>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+  </Sequence>
+</Activity>
