@@ -1,0 +1,39 @@
+select p.branch_id,
+       p.cust_id,
+       p.cust_name,
+       p.pledge_no,
+       decode(substr(p.pledge_no, 8, 2),
+              73,
+              'Ogl',
+              78,
+              'Doorstep',
+              70,
+              'Normal',
+              'Others') STS1,
+       to_char(to_date(p.tra_dt, 'dd-mm-yyyy')) PLDT,
+       p.act_weight ACTWT,
+       p.net_weight NETWT,
+       p.stone_weight STNWT,
+       p.pledge_val PLVAL,
+       case
+         when p.cust_id = m.cust_id and m.status_id = 1 then
+          'OGL'
+         else
+          'NONOGL'
+       end STS2,
+       c1.created_date CRT_DT
+  from mana0809.pledge_master          p,
+       mana0809.tbl_online_gl_cust_mst m,
+       mana0809.customer               c1
+ where p.cust_id = m.cust_id(+)
+   and p.cust_id = c1.cust_id
+   and p.tra_dt >= '1-OCT-2022'
+   and exists
+ (select *
+          from MANA0809.TBL_MEETING_CUSTOMER_DETAILS t, mana0809.customer c
+         where (c.phone2 = substr(t.phone, -10) or
+               c.phone2 = substr(t.whatsapp, -10))
+           and c.cust_id = p.cust_id
+           and to_date(c.created_date) >= '1-OCT-2022'
+           and to_date(t.entered_on) >= '1-OCT-2022'
+           and p.tra_dt >= '1-OCT-2022')
