@@ -1,0 +1,36 @@
+options  ( skip=1 )
+load data
+infile 'C:\Users\375740\Documents\UiPath\E_Sec AMC penalty calculation\Final_Report\Wip Final Report.csv'
+append into table tbl_amc_penalty1
+fields terminated by ","
+OPTIONALLY ENCLOSED BY '"'    
+TRAILING NULLCOLS
+(
+      
+  complaint_no,               
+  customer_id,                 
+  customer_name,              
+  complaint_description,       
+  complaint_type,              
+  equipment_type,              
+  priority_type,               
+  complaint_date,             
+  assigned_date,              
+  wipdate_time,               
+  wip_age,                    
+  close_date,                
+  vendor_name,                
+  resolution_type,            
+  complaint_age,               
+  porelease_date,            
+  porelease_age,              
+  material_delivery_date,  
+  mtd_age,                   
+  work_closer_date,          
+  comment_date,               
+  comments,                    
+  wip_vendor_enginner_logdate, 
+  weage                    
+
+   
+)

@@ -1,0 +1,31 @@
+options  ( skip=1 )
+load data
+infile '\UiPath\E_Sec AMC penalty calculation\Final_Report\Complaint Transaction Report.csv'
+append into table esec_complaint
+fields terminated by ","
+OPTIONALLY ENCLOSED BY '"'    
+TRAILING NULLCOLS
+(
+      
+  COMPLAINT_NO,
+  CUSTOMER_ID,
+  CUSTOMER_NAME,
+  STATE_NAME,              
+  COMPLAINT_DESCRIPTION,
+  COMPLAINT_TYPE,
+  EQUIPMENT_TYPE,
+  PRIORITY_TYPE
+  COMPLAINT_DATETIME,  
+  COMPLAINT_DATE,
+  COMPLAINT_TIME,
+  COMPLAINT_RAISED_BY,
+  VENDOR_NAME,           
+  ASSIGNED_DATE,
+  CLOSE_DATETIME,                    
+  CLOSE_DATE,
+  RESOLUTION_TYPE,
+  COMPLAINT_AGE,                
+  COMMENT_DATE,
+  COMMENTS
+   
+)
