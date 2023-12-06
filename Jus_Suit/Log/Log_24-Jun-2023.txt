@@ -1,0 +1,6 @@
+﻿06/24/2023,14:42:49,INFO,InitAllSettings,Jus_Suit,MANAROBOT6-ManaRobot6-Automation_Process
+06/24/2023,14:42:50,INFO,InitAllSettings,Tare Weight MIsmatch Report,MANAROBOT6-ManaRobot6-Read Config File
+06/24/2023,14:47:50,INFO,InitAllSettings,Jus_Suit,MANAROBOT6-ManaRobot6-Automation_Process
+06/24/2023,14:47:50,INFO,InitAllSettings,Tare Weight MIsmatch Report,MANAROBOT6-ManaRobot6-Read Config File
+06/24/2023,14:50:04,INFO,InitAllSettings,Jus_Suit,MANAROBOT6-ManaRobot6-Automation_Process
+06/24/2023,14:50:05,INFO,InitAllSettings,Tare Weight MIsmatch Report,MANAROBOT6-ManaRobot6-Read Config File

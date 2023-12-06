@@ -1,0 +1,114 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="tes" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="863.2,795.2" sap2010:WorkflowViewState.IdRef="tes_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="46">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="17">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="tes" sap:VirtualizedContainerService.HintSize="524.8,730.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Boolean" Name="fafd" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:ImageFound DisplayName="Image Exists 'firefox.exe Loan'" Found="[fafd]" sap:VirtualizedContainerService.HintSize="483.2,107.2" sap2010:WorkflowViewState.IdRef="ImageFound_1">
+      <ui:ImageFound.Image>
+        <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" InitialScalingFactor="1.25" Profile="Basic" TargetImageBase64="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" />
+      </ui:ImageFound.Image>
+      <ui:ImageFound.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ead51c84-799d-4318-98ca-a402f38c3c7c" Selector="&lt;html app='firefox.exe' title='Loan Management System' /&gt;">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:ImageFound.Target>
+    </ui:ImageFound>
+    <If Condition="[fafd=True]" sap:VirtualizedContainerService.HintSize="483.2,490.4" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="375.2,311.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Image 'firefox.exe Loan'" sap:VirtualizedContainerService.HintSize="333.6,156" sap2010:WorkflowViewState.IdRef="ClickImage_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+            <ui:ClickImage.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:ClickImage.CursorPosition>
+            <ui:ClickImage.Image>
+              <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" InitialScalingFactor="1.25" Profile="Basic" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAADoAAAAoCAYAAACvpem4AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAFcSURBVGhD7ZoxTsNAEEXTcScK7pICLsAZUNocgQaJE1BwAXpaGlIBEqJAiIbC6Fn5aDQaK8g7SGi8X3qKvOPd9fOuk8JZDfucX78Nq/VjXZC8uvuIi5VA9GTzHBcrgejR6S4uVgLRsFCNLlqNLlqNLlqNLlqNLprAzf0nw//k4eVr8pyojU/b3oSfJAvixTgmts2Lnl2+jsepkmAnySJaJUGshD+XRCvfjJ0kg+OLp/Fit7fvYZ12wnkcW1GtuGqpaJIstPX4/E1doroBU/2aYfCwMJNDFzwlSv5kywomCAsz8SKH6hJVO8e+TwoMHhZm0vKM2m1s+6SgSTKJfkYEsatmRVUn6V9IDBoWGtCq+mcuugFeVH2JPa+Z9AENElPsSgovCtrexLY3kTrYf6aLVqOLVqOLVqOLVgPRxbw2XMyL4MW82ieL+LOGwsqyjas8s3jgM+7YvWPxDMM3+Emu6+8f58AAAAAASUVORK5CYII=" />
+            </ui:ClickImage.Image>
+            <ui:ClickImage.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f0023a31-529d-453d-92f0-dafa26ea817f" Selector="&lt;html app='firefox.exe' title='Loan Management System' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:ClickImage.Target>
+          </ui:ClickImage>
+          <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="Delay_1" />
+        </Sequence>
+      </If.Then>
+    </If>
+  </Sequence>
+</Activity>
