@@ -1,0 +1,284 @@
+select row_number() over(order by x.followup_id) as SlNo,
+
+       x.fzm_id,
+
+       x.fzm,
+
+       x.reg_id as Region_ID,
+
+       x.reg_name as Region_name,
+
+       x.area_id as Area_ID,
+
+       x.area_name as Area,
+
+       x.branch_id,
+
+       x.branch_name,
+
+       x.did_no as From_did,
+
+       x.initial_mobile_no as To_no,
+
+       case
+
+         when x.initial_mobile_no = x.mobile then
+
+          'NIL'
+
+         else
+
+          to_char(x.mobile)
+
+       end as Alternate_number,
+
+       x.cust_name  as Customer,
+
+       x.leadsource_name as Lead_Source,
+
+       x.products_name  as Interested_Product,
+
+       x.emp_code  as Emp_Code,
+
+       x.emp_name as Employee_Name,
+
+       x.col_language as Group_lang,
+
+       (x.inserted_on)  as Call_Date,
+
+       x.lead_date  as Lead_date,
+
+       (x.call_response_id) as Disposition,
+
+       x.intrested_status as Status,
+
+       x.response as Call_Response,
+
+       x.call_duration as Duration,
+
+       x.process as Process,
+
+       x.call_center_comment as Remarks,
+
+       x.pledge_weight  as Pledge_Weight,
+
+       x.pledge_amount  as Pledge_Amount
+
+  from (select distinct f.followup_id,
+
+                        g.fzm_id,
+
+                        g.fzm,
+
+                        d.branch_id,
+
+                        d.branch_name,
+
+                        d.reg_id,
+
+                        d.reg_name,
+
+                        d.area_id,
+
+                        d.area_name,
+
+                        e.did_no,
+
+                        f.initial_mobile_no,
+
+                        f.mobile,
+
+                        t.cust_name,
+
+                        c.leadsource_name,
+
+                        p.products_name,
+
+                        f.emp_code,
+
+                        e.emp_name,
+
+                        b.col_language,
+
+                        to_char(f.inserted_on, 'DD-MM-YYYY HH24:Mi:SS') inserted_on,
+
+                        decode(f.call_status, 1, 'ANSWERED', 0, 'NO ANSWER',2,'BUSY',3,'FAILED',null,'FAILED') call_response_id,
+
+                        decode(f.intrested_status,
+
+                               1,
+
+                               'INTERESTED',
+
+                               2,
+
+                               'NOT INTERESTED',3,'call back') intrested_status,
+
+                        decode(f.call_response_id,
+
+                               1,
+
+                               'ANSWERED',
+
+                               2,
+
+                               'NOT ATTENTED',
+
+                               3,
+
+                               'NOT REACHABLE',
+
+                               4,
+
+                               'SWITCHED OFF',
+
+                               5,
+
+                               'NOT REACHABLE',
+
+                               7,
+
+                               'INCOMING CALL') response,
+
+                        f.call_duration call_duration,
+
+                        decode(f.process, 1, 'Incoming', 2, 'Outgoing') process,
+
+                        t.lead_date,
+
+                        f.call_center_comment,
+
+                        t.pledge_weight,
+
+                        t.pledge_amount
+
+          from mana0809.tbl_crc_mst t, mana0809.tbl_crc_followup_dtl f
+
+          left join mana0809.tbl_crc_products p
+
+            on p.products_id = f.interested_products_id,
+
+         mana0809.tbl_leadsource_category c, mana0809.tbl_crc_emp_dtls e,
+
+         mana0809.tbl_crc_bucket_emp_dtl b, mana0809.branch_dtl_new d,
+
+         mana0809.tbl_fzm_master g
+
+         where t.lead_id = f.lead_id
+
+           and f.emp_code = e.emp_code
+
+           and b.bucket_id = t.bucket_id
+
+           and t.followup_status = 1
+
+           and t.branch_id = d.branch_id
+
+           and c.leadsource_id = t.lead_source_cat
+
+           and t.lead_source_cat = 8
+
+           and d.reg_id = g.region_id
+
+           and trunc(t.lead_date) = trunc(f.inserted_on) and f.intrested_status=1 and p.products_id not in   (1,22,25,26) and p.products_id is not null
+
+           and trunc(f.inserted_on) between to_date(last_day(add_months(SYSDATE-1, -1)) + 1)  and to_date(sysdate)-1
+
+         order by inserted_on) x
+
+--------------------------------------------------
+
+select y.products_name interested_product,count(y.initial_mobile_no) cnt from(select 
+       x.fzm_id,
+       x.fzm,
+       x.reg_id as Region_ID,
+       x.reg_name as Region_name,
+       x.area_id as Area_ID,
+       x.area_name as Area,
+       x.branch_id,
+       x.branch_name,
+       x.did_no as From_no,
+       x.initial_mobile_no,
+       case
+         when x.initial_mobile_no = x.mobile then
+          'NIL'
+         else
+          to_char(x.mobile)
+       end as Alternate_number,
+       x.cust_name as Customer,
+       x.leadsource_name as Lead_Source,
+       x.products_name ,
+       x.emp_code as Emp_Code,
+       x.emp_name as Employee_Name,
+       x.col_language as Group_lang,
+       (x.inserted_on) as Call_Date,
+       x.lead_date as Lead_date,
+       (x.call_response_id) as Disposition,
+       x.intrested_status as Status,
+       x.response as Call_Response,
+       x.call_duration as Duration,
+       x.process as Process,
+       x.call_center_comment as Remarks,
+       x.pledge_weight as Pledge_Weight,
+       x.pledge_amount as Pledge_Amount
+  from (select distinct f.followup_id,
+                        g.fzm_id,
+                        g.fzm,
+                        d.branch_id,
+                        d.branch_name,
+                        d.reg_id,
+                       d.reg_name,
+                        d.area_id,
+                        d.area_name,
+                        e.did_no,
+                        f.initial_mobile_no,
+                        f.mobile,
+                        t.cust_name,
+                        c.leadsource_name,
+                        p.products_name,
+                        f.emp_code,
+                        e.emp_name,
+                        b.col_language,
+                        to_char(f.inserted_on, 'DD-MM-YYYY HH24:Mi:SS') inserted_on,
+                        decode(f.call_status, 1, 'ANSWERED', 0, 'NO ANSWER',2,'BUSY',3,'FAILED',null,'FAILED') call_response_id,
+                        decode(f.intrested_status,
+                               1,
+                               'INTERESTED',
+                               2,
+                               'NOT INTERESTED',3,'call back') intrested_status,
+                        decode(f.call_response_id,
+                               1,
+                               'ANSWERED',
+                               2,
+                               'NOT ATTENTED',
+                               3,
+                               'NOT REACHABLE',
+                               4,
+                               'SWITCHED OFF',
+                               5,
+                               'NOT REACHABLE',
+                               7,
+                               'INCOMING CALL') response,
+                        f.call_duration call_duration,
+                        decode(f.process, 1, 'Incoming', 2, 'Outgoing') process,
+                        t.lead_date,
+                        f.call_center_comment,
+                        t.pledge_weight,
+                        t.pledge_amount
+          from mana0809.tbl_crc_mst t, mana0809.tbl_crc_followup_dtl f
+          left join mana0809.tbl_crc_products p
+            on p.products_id = f.interested_products_id,
+         mana0809.tbl_leadsource_category c, mana0809.tbl_crc_emp_dtls e,
+         mana0809.tbl_crc_bucket_emp_dtl b, mana0809.branch_dtl_new d,
+         mana0809.tbl_fzm_master g
+         where t.lead_id = f.lead_id
+           and f.emp_code = e.emp_code
+           and b.bucket_id = t.bucket_id
+           and t.followup_status = 1
+           and t.branch_id = d.branch_id
+           and c.leadsource_id = t.lead_source_cat
+           and t.lead_source_cat = 8
+           and d.reg_id = g.region_id 
+           and trunc(t.lead_date) = trunc(f.inserted_on) and f.intrested_status=1 and p.products_id not in   (1,22,25,26) and p.products_id is not null 
+           and trunc(f.inserted_on) between to_date(last_day(add_months(SYSDATE-1, -1)) + 1)  and to_date(sysdate)-1
+         order by inserted_on) x)y group by y.products_name

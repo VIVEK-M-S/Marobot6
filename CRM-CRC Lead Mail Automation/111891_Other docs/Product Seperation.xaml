@@ -1,0 +1,308 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Product_Seperation" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="781,849" sap2010:WorkflowViewState.IdRef="Product_Seperation_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="31">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>System.Collections.Specialized</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="28">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Product_Seperation" sap:VirtualizedContainerService.HintSize="556,784" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="514,692" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Try>
+        <Sequence sap:VirtualizedContainerService.HintSize="476,465" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="434,373" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="[&quot;C:\Users\&quot;+Environment.UserName+&quot;\Documents\UiPath\CRM-CRC Lead Mail Automation\Reports\CRM Report.xlsx&quot;]">
+            <ui:ExcelApplicationScope.Body>
+              <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+                </ActivityAction.Argument>
+                <Sequence sap:VirtualizedContainerService.HintSize="242,264" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Sequence DisplayName="CRM" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="sd:DataTable" Name="crm_yes_rpt" />
+                      <Variable x:TypeArguments="sd:DataTable" Name="Prod" />
+                      <Variable x:TypeArguments="scg:List(x:String)" Name="Prod1" />
+                      <Variable x:TypeArguments="sd:DataTable" Name="crm_mtd_rpt" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:ExcelReadRange AddHeaders="True" DataTable="[crm_mtd_rpt]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="412,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_2" SheetName="CRM MTD">
+                      <ui:ExcelReadRange.Range>
+                        <InArgument x:TypeArguments="x:String">
+                          <Literal x:TypeArguments="x:String" Value="" />
+                        </InArgument>
+                      </ui:ExcelReadRange.Range>
+                    </ui:ExcelReadRange>
+                    <Assign sap:VirtualizedContainerService.HintSize="412,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="sd:DataTable">[Prod]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="sd:DataTable">[crm_mtd_rpt.DefaultView.ToTable(TRUE,"PRODUCT")]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign sap:VirtualizedContainerService.HintSize="412,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="scg:List(x:String)">[Prod1]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="scg:List(x:String)">[Prod.Rows.Cast(OF DataRow).Select(Function(dr)dr("PRODUCT").Tostring).Tolist()]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="412,540" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[Prod1]">
+                      <ui:ForEach.Body>
+                        <ActivityAction x:TypeArguments="x:Object">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="x:Object" Name="item" />
+                          </ActivityAction.Argument>
+                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,407" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                            <Sequence.Variables>
+                              <Variable x:TypeArguments="sd:DataTable" Name="crm_yes_rpt_new" />
+                              <Variable x:TypeArguments="sd:DataTable" Name="crm_mtd_rpt_new" />
+                            </Sequence.Variables>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:FilterDataTable DataTable="[crm_mtd_rpt]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="334,160" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" OutputDataTable="[crm_mtd_rpt_new]" SelectColumnsMode="Keep">
+                              <ui:FilterDataTable.Filters>
+                                <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+                                  <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
+                                    <ui:FilterOperationArgument.Column>
+                                      <InArgument x:TypeArguments="x:String">["PRODUCT"]</InArgument>
+                                    </ui:FilterOperationArgument.Column>
+                                    <ui:FilterOperationArgument.Operand>
+                                      <InArgument x:TypeArguments="x:String">[item.ToString]</InArgument>
+                                    </ui:FilterOperationArgument.Operand>
+                                  </ui:FilterOperationArgument>
+                                </scg:List>
+                              </ui:FilterDataTable.Filters>
+                              <ui:FilterDataTable.SelectColumns>
+                                <scg:List x:TypeArguments="InArgument" Capacity="32">
+                                  <InArgument x:TypeArguments="x:String">["REGISTRATION_DATE"]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">["CUSTOMER_TYPE"]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">["TICKET_TYPE"]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">["DISPOSITIONNAME"]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">["CUSTOMER_NAME"]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">["CONTACTNO"]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">["DETAILS_OF_COMPLAINT"]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">["BRANCH_ID"]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">["BRANCH_NAME"]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">["REG_NAME"]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">["AREA_NAME"]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">["PRODUCT"]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">["APPOINTMENTDATE"]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">["EXISTING_CUST_NAME"]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">["EXIS_CUST_MOB"]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">["CUST_CALL_FRM"]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">["NON_CUST_CALL_FRM"]</InArgument>
+                                </scg:List>
+                              </ui:FilterDataTable.SelectColumns>
+                            </ui:FilterDataTable>
+                            <ui:WriteRange AddHeaders="True" DataTable="[crm_mtd_rpt_new]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Inbound" StartingCell="A1" WorkbookPath="[&quot;C:\Users\&quot;+Environment.UserName+&quot;\Documents\UiPath\CRM-CRC Lead Mail Automation\Product Seperate Report\&quot;+item.ToString+&quot;.xlsx&quot;]" />
+                          </Sequence>
+                        </ActivityAction>
+                      </ui:ForEach.Body>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:ForEach>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="412,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;CRM invoices seperated&quot;]" />
+                  </Sequence>
+                  <Sequence DisplayName="CRC" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="sd:DataTable" Name="crm_yes_rpt" />
+                      <Variable x:TypeArguments="sd:DataTable" Name="Prod" />
+                      <Variable x:TypeArguments="scg:List(x:String)" Name="Prod1" />
+                      <Variable x:TypeArguments="sd:DataTable" Name="crm_mtd_rpt" />
+                      <Variable x:TypeArguments="sd:DataTable" Name="crc_mtd_rpt" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:ExcelReadRange AddHeaders="True" DataTable="[crc_mtd_rpt]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="412,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_3" SheetName="CRC MTD">
+                      <ui:ExcelReadRange.Range>
+                        <InArgument x:TypeArguments="x:String">
+                          <Literal x:TypeArguments="x:String" Value="" />
+                        </InArgument>
+                      </ui:ExcelReadRange.Range>
+                    </ui:ExcelReadRange>
+                    <Assign sap:VirtualizedContainerService.HintSize="412,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="sd:DataTable">[Prod]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="sd:DataTable">[crc_mtd_rpt.DefaultView.ToTable(TRUE,"INTERESTED_PRODUCT")]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign sap:VirtualizedContainerService.HintSize="412,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="scg:List(x:String)">[Prod1]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="scg:List(x:String)">[Prod.Rows.Cast(OF DataRow).Select(Function(dr)dr("INTERESTED_PRODUCT").Tostring).Tolist()]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="412,540" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[Prod1]">
+                      <ui:ForEach.Body>
+                        <ActivityAction x:TypeArguments="x:Object">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="x:Object" Name="item" />
+                          </ActivityAction.Argument>
+                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,407" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                            <Sequence.Variables>
+                              <Variable x:TypeArguments="sd:DataTable" Name="crm_yes_rpt_new" />
+                              <Variable x:TypeArguments="sd:DataTable" Name="crm_mtd_rpt_new" />
+                              <Variable x:TypeArguments="sd:DataTable" Name="crc_mtd_rpt_new" />
+                            </Sequence.Variables>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:FilterDataTable DataTable="[crc_mtd_rpt]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="334,160" sap2010:WorkflowViewState.IdRef="FilterDataTable_3" OutputDataTable="[crc_mtd_rpt_new]" SelectColumnsMode="Keep">
+                              <ui:FilterDataTable.Filters>
+                                <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+                                  <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
+                                    <ui:FilterOperationArgument.Column>
+                                      <InArgument x:TypeArguments="x:String">["INTERESTED_PRODUCT"]</InArgument>
+                                    </ui:FilterOperationArgument.Column>
+                                    <ui:FilterOperationArgument.Operand>
+                                      <InArgument x:TypeArguments="x:String">[item.ToString]</InArgument>
+                                    </ui:FilterOperationArgument.Operand>
+                                  </ui:FilterOperationArgument>
+                                </scg:List>
+                              </ui:FilterDataTable.Filters>
+                              <ui:FilterDataTable.SelectColumns>
+                                <scg:List x:TypeArguments="InArgument" Capacity="16">
+                                  <InArgument x:TypeArguments="x:String">["BRANCH_ID"]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">["BRANCH_NAME"]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">["REGION_ID"]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">["REGION_NAME"]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">["AREA_ID"]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">["AREA"]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">["TO_NO"]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">["CUSTOMER"]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">["INTERESTED_PRODUCT"]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">["CALL_DATE"]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">["REMARKS"]</InArgument>
+                                </scg:List>
+                              </ui:FilterDataTable.SelectColumns>
+                            </ui:FilterDataTable>
+                            <ui:WriteRange AddHeaders="True" DataTable="[crc_mtd_rpt_new]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="WriteRange_3" SheetName="Outbound" StartingCell="A1" WorkbookPath="[&quot;C:\Users\&quot;+Environment.UserName+&quot;\Documents\UiPath\CRM-CRC Lead Mail Automation\Product Seperate Report\&quot;+item.ToString+&quot;.xlsx&quot;]" />
+                          </Sequence>
+                        </ActivityAction>
+                      </ui:ForEach.Body>
+                    </ui:ForEach>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="412,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;CRC invoices seperated&quot;]" />
+                  </Sequence>
+                </Sequence>
+              </ActivityAction>
+            </ui:ExcelApplicationScope.Body>
+          </ui:ExcelApplicationScope>
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="480,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+  </Sequence>
+</Activity>

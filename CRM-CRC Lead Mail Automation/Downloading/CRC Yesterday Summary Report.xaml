@@ -1,0 +1,175 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="CRC_Yesterday_Summary_Report" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="Arg_Status" Type="InOutArgument(x:Boolean)" />
+    <x:Property Name="Folder" Type="InOutArgument(x:String)" />
+    <x:Property Name="In_Config" Type="InOutArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>933,1302</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>CRC_Yesterday_Summary_Report_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="33">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.Database</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Database.Activities</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.Excel</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.Database</AssemblyReference>
+      <AssemblyReference>UiPath.Database.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="CRC_Yesterday_Summary_Report" sap:VirtualizedContainerService.HintSize="500,1237" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,1115" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Try>
+        <Sequence sap:VirtualizedContainerService.HintSize="400,878" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="sd:DataTable" Name="CRC_yest_summary" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:ExecuteQuery ContinueOnError="{x:Null}" ExistingDbConnection="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" ConnectionString="[In_Config(&quot;Conn_Config&quot;).ToString]" DataTable="[CRC_yest_summary]" DisplayName="Run query" sap:VirtualizedContainerService.HintSize="338,98" sap2010:WorkflowViewState.IdRef="ExecuteQuery_2" ProviderName="System.Data.Odbc" Sql="select y.INTERESTED_PRODUCT product, count(y.TO_NO) product_count&#xD;&#xA;  from (Select row_number() over(Order By k.followup_id) As SlNO,&#xD;&#xA;               k.BRANCH_ID,&#xD;&#xA;               k.BRANCH_NAME,&#xD;&#xA;               k.REG_ID REGION_ID,&#xD;&#xA;               k.REGION_NAME,&#xD;&#xA;               k.AREA_ID,&#xD;&#xA;               k.AREA_NAME AREA,&#xD;&#xA;               k.MOBILE TO_NO,&#xD;&#xA;               k.CUSTOMER_NAME CUSTOMER,&#xD;&#xA;               k.PRODUCTS_NAME INTERESTED_PRODUCT,&#xD;&#xA;               k.INSERTED_ON CALL_DATE,&#xD;&#xA;&#x9;&#x9;&#x9;   k.CALL_RESPONSE_ID,&#xD;&#xA;&#x9;&#x9;&#x9;   k.INTERESTED_STATUS,&#xD;&#xA;               k.REMARKS&#xD;&#xA;          From (Select Distinct f.followup_id,&#xD;&#xA;                                x.fzm_id,&#xD;&#xA;                                REGEXP_REPLACE(TO_CHAR(REPLACE(REPLACE(replace(x.fzm,&#xD;&#xA;                                                                               '|',&#xD;&#xA;                                                                               '/'),&#xD;&#xA;                                                                       CHR(10),&#xD;&#xA;                                                                       ''),&#xD;&#xA;                                                               CHR(13),&#xD;&#xA;                                                               '')),&#xD;&#xA;                                               '[&amp;,()./\;:-]',&#xD;&#xA;                                               '') ZONE_NAME,&#xD;&#xA;                                x.BRANCH_ID,&#xD;&#xA;                                REGEXP_REPLACE(TO_CHAR(REPLACE(REPLACE(replace(x.BRANCH_NAME,&#xD;&#xA;                                                                               '|',&#xD;&#xA;                                                                               '/'),&#xD;&#xA;                                                                       CHR(10),&#xD;&#xA;                                                                       ''),&#xD;&#xA;                                                               CHR(13),&#xD;&#xA;                                                               '')),&#xD;&#xA;                                               '[&amp;,()./\;:-]',&#xD;&#xA;                                               '') BRANCH_NAME,&#xD;&#xA;                                x.reg_id,&#xD;&#xA;                                REGEXP_REPLACE(TO_CHAR(REPLACE(REPLACE(replace(x.reg_name,&#xD;&#xA;                                                                               '|',&#xD;&#xA;                                                                               '/'),&#xD;&#xA;                                                                       CHR(10),&#xD;&#xA;                                                                       ''),&#xD;&#xA;                                                               CHR(13),&#xD;&#xA;                                                               '')),&#xD;&#xA;                                               '[&amp;,()./\;:-]',&#xD;&#xA;                                               '') REGION_NAME,&#xD;&#xA;                                x.area_id,&#xD;&#xA;                                REGEXP_REPLACE(TO_CHAR(REPLACE(REPLACE(replace(x.area_name,&#xD;&#xA;                                                                               '|',&#xD;&#xA;                                                                               '/'),&#xD;&#xA;                                                                       CHR(10),&#xD;&#xA;                                                                       ''),&#xD;&#xA;                                                               CHR(13),&#xD;&#xA;                                                               '')),&#xD;&#xA;                                               '[&amp;,()./\;:-]',&#xD;&#xA;                                               '') AREA_NAME,&#xD;&#xA;                                e.did_no,&#xD;&#xA;                                f.initial_mobile_no,&#xD;&#xA;                                f.mobile,&#xD;&#xA;                                REGEXP_REPLACE(TO_CHAR(REPLACE(REPLACE(REPLACE(replace(x.cust_name,&#xD;&#xA;                                                                                       '|',&#xD;&#xA;                                                                                       '/'),&#xD;&#xA;                                                                               CHR(10),&#xD;&#xA;                                                                               ''),&#xD;&#xA;                                                                       CHR(13),&#xD;&#xA;                                                                       ''),&#xD;&#xA;                                                               CHR(32),&#xD;&#xA;                                                               '')),&#xD;&#xA;                                               '[&amp;,()./\;:-]',&#xD;&#xA;                                               '') CUSTOMER_NAME,&#xD;&#xA;                                c.leadsource_name,&#xD;&#xA;                                p.products_name,&#xD;&#xA;                                f.emp_code,&#xD;&#xA;                                REGEXP_REPLACE(TO_CHAR(REPLACE(REPLACE(replace(e.emp_name,&#xD;&#xA;                                                                               '|',&#xD;&#xA;                                                                               '/'),&#xD;&#xA;                                                                       CHR(10),&#xD;&#xA;                                                                       ''),&#xD;&#xA;                                                               CHR(13),&#xD;&#xA;                                                               '')),&#xD;&#xA;                                               '[&amp;,()./\;:-]',&#xD;&#xA;                                               '') EMP_NAME,&#xD;&#xA;                                x.col_language,&#xD;&#xA;                                to_char(f.inserted_on,&#xD;&#xA;                                        'DD-MM-YYYY HH24:Mi:SS') INSERTED_ON,&#xD;&#xA;                                decode(f.call_status,&#xD;&#xA;                                       1,&#xD;&#xA;                                       'ANSWERED',&#xD;&#xA;                                       0,&#xD;&#xA;                                       'NO ANSWER',&#xD;&#xA;                                       2,&#xD;&#xA;                                       'BUSY',&#xD;&#xA;                                       3,&#xD;&#xA;                                       'FAILED',&#xD;&#xA;                                       null,&#xD;&#xA;                                       'FAILED') CALL_RESPONSE_ID,&#xD;&#xA;                                decode(f.intrested_status,&#xD;&#xA;                                       1,&#xD;&#xA;                                       'INTERESTED',&#xD;&#xA;                                       2,&#xD;&#xA;                                       'NOT INTERESTED',&#xD;&#xA;                                       3,&#xD;&#xA;                                       'CALL BACK') INTERESTED_STATUS,&#xD;&#xA;                                decode(f.call_response_id,&#xD;&#xA;                                       1,&#xD;&#xA;                                       'ANSWERED',&#xD;&#xA;                                       2,&#xD;&#xA;                                       'NOT ATTENTED',&#xD;&#xA;                                       3,&#xD;&#xA;                                       'NOT REACHABLE',&#xD;&#xA;                                       4,&#xD;&#xA;                                       'SWITCHED OFF',&#xD;&#xA;                                       5,&#xD;&#xA;                                       'NOT REACHABLE',&#xD;&#xA;                                       7,&#xD;&#xA;                                       'INCOMING CALL') RESPONSE,&#xD;&#xA;                                f.call_duration call_duration,&#xD;&#xA;                                decode(f.process,&#xD;&#xA;                                       1,&#xD;&#xA;                                       'Incoming',&#xD;&#xA;                                       2,&#xD;&#xA;                                       'Outgoing') PROCESS,&#xD;&#xA;                                to_char(x.lead_date, 'DD-MM-YYYY HH24:Mi:SS') LEAD_DATE,&#xD;&#xA;                                REGEXP_REPLACE(TO_CHAR(REPLACE(REPLACE(replace(nvl(f.call_center_comment,&#xD;&#xA;                                                                                   'NIL'),&#xD;&#xA;                                                                               '|',&#xD;&#xA;                                                                               '/'),&#xD;&#xA;                                                                       CHR(10),&#xD;&#xA;                                                                       ''),&#xD;&#xA;                                                               CHR(13),&#xD;&#xA;                                                               '')),&#xD;&#xA;                                               '[&amp;,()./\;:-]',&#xD;&#xA;                                               '') REMARKS,&#xD;&#xA;                                nvl(f.pledge_weight, 0),&#xD;&#xA;                                nvl(f.pledge_amount, 0),&#xD;&#xA;                                f.followup_reason&#xD;&#xA;                  From mana0809.tbl_crc_followup_dtl f&#xD;&#xA;                  left outer Join (Select y.col_language,&#xD;&#xA;                                         n.lead_id,&#xD;&#xA;                                         n.cust_name,&#xD;&#xA;                                         n.initial_mobile_no,&#xD;&#xA;                                         n.lead_date,&#xD;&#xA;                                         m.fzm_id,&#xD;&#xA;                                         m.fzm,&#xD;&#xA;                                         b.reg_id,&#xD;&#xA;                                         b.reg_name,&#xD;&#xA;                                         b.area_id,&#xD;&#xA;                                         b.area_name,&#xD;&#xA;                                         b.BRANCH_ID,&#xD;&#xA;                                         b.BRANCH_NAME&#xD;&#xA;                                    From mana0809.crc_mst_new n,&#xD;&#xA;                                         mana0809.branch_dtl_new b,&#xD;&#xA;                                         mana0809.tbl_fzm_master m,&#xD;&#xA;                                         (Select Distinct eb.col_language,&#xD;&#xA;                                                          eb.bucket_id&#xD;&#xA;                                            From mana0809.tbl_crc_bucket_emp_dtl eb) y&#xD;&#xA;                                   Where b.BRANCH_ID = n.branch_id&#xD;&#xA;                                     And b.reg_id = m.region_id&#xD;&#xA;                                     And y.bucket_id = n.bucket_id) x&#xD;&#xA;                    On (f.lead_id = x.lead_id)&#xD;&#xA;                  left outer Join mana0809.tbl_crc_products p&#xD;&#xA;                    On (p.products_id = f.interested_products_id)&#xD;&#xA;                  left outer Join mana0809.tbl_leadsource_category c&#xD;&#xA;                    On (c.leadsource_id = f.leadsource_id)&#xD;&#xA;                  left outer Join mana0809.tbl_crc_emp_dtls e&#xD;&#xA;                    On (e.emp_code = f.emp_code)&#xD;&#xA;                 Where trunc(f.inserted_on) = to_date(sysdate) - 1&#xD;&#xA;                   And p.products_name Is Not null&#xD;&#xA;                   and upper(p.products_name) not like '%GOLD%' and f.call_status=1 and f.intrested_status=1&#xD;&#xA;                 Order By f.followup_id desc) k) y&#xD;&#xA; group by y.INTERESTED_PRODUCT">
+            <ui:ExecuteQuery.Parameters>
+              <scg:Dictionary x:TypeArguments="x:String, Argument" />
+            </ui:ExecuteQuery.Parameters>
+          </ui:ExecuteQuery>
+          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="338,61" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+            <ui:CommentOut.Body>
+              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,200" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:ExecuteQuery ContinueOnError="{x:Null}" ExistingDbConnection="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" ConnectionString="[In_Config(&quot;Conn_Config&quot;).ToString]" DataTable="[CRC_yest_summary]" DisplayName="Run query" sap:VirtualizedContainerService.HintSize="388,89" sap2010:WorkflowViewState.IdRef="ExecuteQuery_1" ProviderName="System.Data.Odbc" Sql="select y.products_name product,count(y.initial_mobile_no) product_count from(select &#xA;       x.fzm_id,&#xA;       x.fzm,&#xA;       x.reg_id as Region_ID,&#xA;       x.reg_name as Region_name,&#xA;       x.area_id as Area_ID,&#xA;       x.area_name as Area,&#xA;       x.branch_id,&#xA;       x.branch_name,&#xA;       x.did_no as From_no,&#xA;       x.initial_mobile_no,&#xA;       case&#xA;         when x.initial_mobile_no = x.mobile then&#xA;          'NIL'&#xA;         else&#xA;          to_char(x.mobile)&#xA;       end as Alternate_number,&#xA;       x.cust_name as Customer,&#xA;       x.leadsource_name as Lead_Source,&#xA;       x.products_name ,&#xA;       x.emp_code as Emp_Code,&#xA;       x.emp_name as Employee_Name,&#xA;       x.col_language as Group_lang,&#xA;       (x.inserted_on) as Call_Date,&#xA;       x.lead_date as Lead_date,&#xA;       (x.call_response_id) as Disposition,&#xA;       x.intrested_status as Status,&#xA;       x.response as Call_Response,&#xA;       x.call_duration as Duration,&#xA;       x.process as Process,&#xA;       x.call_center_comment as Remarks,&#xA;       x.pledge_weight as Pledge_Weight,&#xA;       x.pledge_amount as Pledge_Amount&#xA;  from (select distinct f.followup_id,&#xA;                        g.fzm_id,&#xA;                        g.fzm,&#xA;                        d.branch_id,&#xA;                        d.branch_name,&#xA;                        d.reg_id,&#xA;                       d.reg_name,&#xA;                        d.area_id,&#xA;                        d.area_name,&#xA;                        e.did_no,&#xA;                        f.initial_mobile_no,&#xA;                        f.mobile,&#xA;                        t.cust_name,&#xA;                        c.leadsource_name,&#xA;                        p.products_name,&#xA;                        f.emp_code,&#xA;                        e.emp_name,&#xA;                        b.col_language,&#xA;                        to_char(f.inserted_on, 'DD-MM-YYYY HH24:Mi:SS') inserted_on,&#xA;                        decode(f.call_status, 1, 'ANSWERED', 0, 'NO ANSWER',2,'BUSY',3,'FAILED',null,'FAILED') call_response_id,&#xA;                        decode(f.intrested_status,&#xA;                               1,&#xA;                               'INTERESTED',&#xA;                               2,&#xA;                               'NOT INTERESTED',3,'call back') intrested_status,&#xA;                        decode(f.call_response_id,&#xA;                               1,&#xA;                               'ANSWERED',&#xA;                               2,&#xA;                               'NOT ATTENTED',&#xA;                               3,&#xA;                               'NOT REACHABLE',&#xA;                               4,&#xA;                               'SWITCHED OFF',&#xA;                               5,&#xA;                               'NOT REACHABLE',&#xA;                               7,&#xA;                               'INCOMING CALL') response,&#xA;                        f.call_duration call_duration,&#xA;                        decode(f.process, 1, 'Incoming', 2, 'Outgoing') process,&#xA;                        t.lead_date,&#xA;                        f.call_center_comment,&#xA;                        t.pledge_weight,&#xA;                        t.pledge_amount&#xA;          from mana0809.tbl_crc_mst t, mana0809.tbl_crc_followup_dtl f&#xA;          left join mana0809.tbl_crc_products p&#xA;            on p.products_id = f.interested_products_id,&#xA;         mana0809.tbl_leadsource_category c, mana0809.tbl_crc_emp_dtls e,&#xA;         mana0809.tbl_crc_bucket_emp_dtl b, mana0809.branch_dtl_new d,&#xA;         mana0809.tbl_fzm_master g&#xA;         where t.lead_id = f.lead_id&#xA;           and f.emp_code = e.emp_code&#xA;           and b.bucket_id = t.bucket_id&#xA;           and t.followup_status = 1&#xA;           and t.branch_id = d.branch_id&#xA;           and c.leadsource_id = t.lead_source_cat&#xA;           and t.lead_source_cat = 8&#xA;           and d.reg_id = g.region_id &#xA;           and trunc(t.lead_date) = trunc(f.inserted_on) and f.intrested_status=1 and p.products_id not in   (1,22,25,26) and p.products_id is not null &#xA;           and trunc(f.inserted_on) = to_date(sysdate)-1&#xA;         order by inserted_on) x)y group by y.products_name">
+                  <ui:ExecuteQuery.Parameters>
+                    <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                  </ui:ExecuteQuery.Parameters>
+                </ui:ExecuteQuery>
+              </Sequence>
+            </ui:CommentOut.Body>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:CommentOut>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;CRC yesterday report summary query execution completed&quot;]" />
+          <ui:WriteRange AddHeaders="True" DataTable="[CRC_yest_summary]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="338,125" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="CRC Yesterday Summary" StartingCell="A1" WorkbookPath="[Folder+In_Config(&quot;CRM_Summary_Report&quot;).ToString]" />
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;CRC yesterday report summary writed in excel&quot;]" />
+          <Assign sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_2">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Boolean">[Arg_Status]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence sap:VirtualizedContainerService.HintSize="376,283" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Error" Message="[exception.Message]" />
+              <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Boolean">[Arg_Status]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                </Assign.Value>
+              </Assign>
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+  </Sequence>
+</Activity>

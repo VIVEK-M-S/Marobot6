@@ -1,0 +1,106 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="CRM_Report_Downloading" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="781,981" sap2010:WorkflowViewState.IdRef="CRM_Report_Downloading_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="54">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.Database</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Database.Activities</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="38">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Database</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.Database.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="CRM_Report_Downloading" sap:VirtualizedContainerService.HintSize="480,916" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="CRM_Daily_rpt" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,824" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Try>
+        <Sequence sap:VirtualizedContainerService.HintSize="376,597" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:ExecuteQuery ContinueOnError="{x:Null}" ExistingDbConnection="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" ConnectionString="Dsn=Uipath Database;uid=RPA_RO;pwd=Mafil#123" DataTable="[CRM_Daily_rpt]" DisplayName="Run query" sap:VirtualizedContainerService.HintSize="334,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_1" ProviderName="System.Data.Odbc" Sql="select a.registration_date,&#xA;&#xA;       a.complaint_id as Docket_No,&#xA;&#xA;       decode(a.customer_type, '1', 'Customer', '2', 'Non customer') Customer_type,&#xA;&#xA;       decode(a.customer_call,&#xA;&#xA;              '1',&#xA;&#xA;              'enquerry',&#xA;&#xA;              '2',&#xA;&#xA;              'compliant',&#xA;&#xA;              '3',&#xA;&#xA;              'suggestion') Customer_call,&#xA;&#xA;       decode(a.customer_serch,&#xA;&#xA;              '0',&#xA;&#xA;              'Mobile no',&#xA;&#xA;              '1',&#xA;&#xA;              'Customer_id',&#xA;&#xA;              '2',&#xA;&#xA;              'Pledge_no') Customer_search,&#xA;&#xA;       a.source,&#xA;&#xA;       a.enterd_by as Assigned_User,&#xA;&#xA;       b.call_type as Ticket_Type,&#xA;&#xA;       a.priority,&#xA;&#xA;       c.dispositionname,&#xA;&#xA;       d.subdispositionname,&#xA;&#xA;       a.natureofcomplaint,&#xA;&#xA;       a.customer_name,&#xA;&#xA;       a.contactno,&#xA;&#xA;       a.details_of_complaint,&#xA;&#xA;       a.modified_date,&#xA;&#xA;       a.registration_date as close_time,&#xA;&#xA;       a.language,&#xA;&#xA;       a.abit_mafil,&#xA;&#xA;       a.branch_id,&#xA;&#xA;       bt.BRANCH_NAME,&#xA;&#xA;       bt.state_name,&#xA;&#xA;       bt.reg_name,&#xA;&#xA;       bt.area_name,&#xA;&#xA;       a.product,&#xA;&#xA;       a.appointmentdate,&#xA;&#xA;       a.existng_cust_no,&#xA;&#xA;       a.pin_code,&#xA;&#xA;       bb.branch_addr || ',' || bb.branch_add1 || ',' || bb.branch_add2 || ',' ||&#xA;&#xA;       bb.branch_add3 || ',' || bb.branch_add4 || ',' || bb.branch_add5 branch_Address,&#xA;&#xA;       decode(a.status, '0', 'New_data', '1', 'Modification_data') status_type,&#xA;&#xA;       a.EXISTING_CUST_NAME,&#xA;&#xA;       a.EXIS_CUST_MOB,&#xA;&#xA;       a.cust_call_frm,&#xA;&#xA;       a.non_cust_call_frm,&#xA;&#xA;       a.MODIFIED_BY,&#xA;&#xA;       a.MODIFIED_DATE,&#xA;&#xA;       s.ticket_st,&#xA;&#xA;       i.action_type,&#xA;&#xA;       a.ticket_remarks,&#xA;&#xA;       a.pledge_weight,&#xA;&#xA;       a.pledge_amount,&#xA;&#xA;       a.EMPLOYMENT_PROFILE&#xA;&#xA;  from mana0809.CRM_CUSTOMER_REGISTRATION a&#xA;&#xA;  JOIN mana0809.tbl_crm_calltype b&#xA;&#xA;    ON (A.CALLTYPE = B.ID)&#xA;&#xA;  JOIN mana0809.tbl_crm_dispositionname c&#xA;&#xA;    ON (A.DISPOSITION = C.DISPOSITION_ID)&#xA;&#xA;  JOIN mana0809.tbl_crm_subdisposition d&#xA;&#xA;    ON (A.Subdisposition = D.SUBDISPOSITION_ID)&#xA;&#xA;  JOIN mana0809.branch_dtl_new bt&#xA;&#xA;    ON (A.BRANCH_ID = BT.BRANCH_ID)&#xA;&#xA;  JOIN mana0809.branch_master bb&#xA;&#xA;    ON (BT.BRANCH_ID = BB.BRANCH_ID)&#xA;&#xA;  LEFT JOIN mana0809.TBL_CRM_TICKET_STATUS s&#xA;&#xA;    ON (A.TICKET_ST = S.TICKET_ID)&#xA;&#xA;  LEFT JOIN mana0809.TBL_CRM_INTERNAL_ACTION i&#xA;&#xA;    ON (A.INTERNAL_ACTION = I.ACTION_ID)&#xA;&#xA; where a.calltype=10 and upper(a.product) not like '%GOLD%' and  a.product is not null and   to_date(a.registration_date) = to_date(sysdate)-1 &#xA;">
+            <ui:ExecuteQuery.Parameters>
+              <scg:Dictionary x:TypeArguments="x:String, Argument" />
+            </ui:ExecuteQuery.Parameters>
+          </ui:ExecuteQuery>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;CRM daily report downloading query execution completed&quot;]" />
+          <ui:WriteRange AddHeaders="True" DataTable="[CRM_Daily_rpt]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="CRM Yesterday" StartingCell="A1" WorkbookPath="[&quot;C:\Users\&quot;+Environment.UserName+&quot;\Documents\UiPath\CRM-CRC Lead Mail Automation\Reports\CRM Report.xlsx&quot;]" />
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;CRM daily report writed in excel&quot;]" />
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+  </Sequence>
+</Activity>
