@@ -1,0 +1,111 @@
+select *
+  from tableau_punch_shortdata_new t
+ where trunc(PR_DATE) = trunc(sysdate - 1)
+   and post = 'ARM/AM-SECURITY'
+   and (t.actualshortage >= 1 or t.surplus >= 1)
+
+'Area Head'
+select t.area,
+       t.region,
+       t.fzm,
+       t.staffnorms        Norms,
+       t.live_punch,
+       t.less_10days,
+       t.undernoticeperiod UNP,
+       t.shortage10days,
+       t.surplus           Surplus,
+       t.actualshortage    Shortage
+  from tableau_punch_shortdata_new t
+ where trunc(PR_DATE) = (case
+                           when trunc(sysdate, 'd') + 1 = trunc(sysdate) then
+                            trunc(sysdate) - 2
+                           else
+                            trunc(sysdate) - 1
+                         end)
+   and post = 'AREA HEAD'
+   and (t.actualshortage >= 1 or t.surplus >= 1)
+   
+   
+   
+   'ARM/AM-SECURITY'
+ select t.region,
+        t.fzm FZM,
+        t.staffnorms Norms,
+        t.live_punch,
+        t.less_10days,
+        t.undernoticeperiod UNP,
+        t.shortage10days,
+        t.surplus Surplus,
+        t.actualshortage Shortage
+   from tableau_punch_shortdata_new t
+  where trunc(PR_DATE) = (case
+                           when trunc(sysdate, 'd') + 1 = trunc(sysdate) then
+                            trunc(sysdate) - 2
+                           else
+                            trunc(sysdate) - 1
+                         end)
+    and post = 'ARM/AM-SECURITY'
+    and (t.actualshortage >= 1 or t.surplus >= 1)
+   
+   
+   'REGIONAL MANAGER'
+ select t.region,
+        t.fzm FZM,
+        t.staffnorms Norms,
+        t.live_punch,
+        t.less_10days,
+        t.undernoticeperiod UNP,
+        t.shortage10days,
+        t.surplus Surplus,
+        t.actualshortage Shortage
+   from tableau_punch_shortdata_new t
+  where trunc(PR_DATE) = (case
+                           when trunc(sysdate, 'd') + 1 = trunc(sysdate) then
+                            trunc(sysdate) - 2
+                           else
+                            trunc(sysdate) - 1
+                         end)
+    and post = 'REGIONAL MANAGER'
+    and (t.actualshortage >= 1 or t.surplus >= 1)
+   
+   
+   'REGIONAL HEAD (AUDIT)'
+   select t.region,
+        t.fzm FZM,
+        t.staffnorms Norms,
+        t.live_punch,
+        t.less_10days,
+        t.undernoticeperiod UNP,
+        t.shortage10days,
+        t.surplus Surplus,
+        t.actualshortage Shortage
+   from tableau_punch_shortdata_new t
+  where trunc(PR_DATE) = (case
+                           when trunc(sysdate, 'd') + 1 = trunc(sysdate) then
+                            trunc(sysdate) - 2
+                           else
+                            trunc(sysdate) - 1
+                         end)
+    and post = 'REGIONAL HEAD (AUDIT)'
+    and (t.actualshortage >= 1 or t.surplus >= 1)
+
+
+'INTERNAL AUDITOR'
+   select t.region,
+        t.fzm FZM,
+        t.staffnorms Norms,
+        t.live_punch,
+        t.less_10days,
+        t.undernoticeperiod UNP,
+        t.shortage10days,
+        t.surplus Surplus,
+        t.actualshortage Shortage
+   from tableau_punch_shortdata_new t
+  where trunc(PR_DATE) = (case
+                           when trunc(sysdate, 'd') + 1 = trunc(sysdate) then
+                            trunc(sysdate) - 2
+                           else
+                            trunc(sysdate) - 1
+                         end)
+    and post = 'INTERNAL AUDITOR'
+    and (t.actualshortage >= 1 or t.surplus >= 1)

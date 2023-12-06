@@ -1,0 +1,291 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Report_Downloading" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="Arg_Status" Type="InOutArgument(x:Boolean)" />
+    <x:Property Name="Folder_Path" Type="InOutArgument(x:String)" />
+    <x:Property Name="In_Config" Type="InOutArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>881.333333333333,2012</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Report_Downloading_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="34">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.Database</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Database.Activities</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="33">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices.RuntimeInformation</AssemblyReference>
+      <AssemblyReference>UiPath.Database</AssemblyReference>
+      <AssemblyReference>UiPath.Database.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Report_Downloading" sap:VirtualizedContainerService.HintSize="674.666666666667,1947.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="612.666666666667,1836.66666666667" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Try>
+        <Sequence sap:VirtualizedContainerService.HintSize="574,1597.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_19">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Sequence sap:VirtualizedContainerService.HintSize="512,1225.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Sequence DisplayName="Folder Delete" sap:VirtualizedContainerService.HintSize="450,84.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_5">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="x:Boolean" Name="Path" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists" Exists="[Path]" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[Folder_Path+In_Config(&quot;Folder_Path&quot;).ToString]" PathType="Folder" />
+              <If Condition="[Path=True]" sap:VirtualizedContainerService.HintSize="388,54" sap2010:WorkflowViewState.IdRef="If_1">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <If.Then>
+                  <Sequence sap:VirtualizedContainerService.HintSize="376,355" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:Delete ContinueOnError="{x:Null}" ResourceFile="{x:Null}" sap:VirtualizedContainerService.HintSize="334,132" sap2010:WorkflowViewState.IdRef="Delete_1" Path="[Folder_Path+In_Config(&quot;Folder_Path&quot;).ToString]" />
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Folder deleted&quot;]" />
+                  </Sequence>
+                </If.Then>
+                <If.Else>
+                  <Sequence sap:VirtualizedContainerService.HintSize="376,183" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Folder not exist&quot;]" />
+                  </Sequence>
+                </If.Else>
+              </If>
+              <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="388,82" sap2010:WorkflowViewState.IdRef="CreateDirectory_2" Path="[Folder_Path+In_Config(&quot;Folder_Path&quot;).ToString]" />
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,96" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Folder created&quot;]" />
+            </Sequence>
+            <Sequence DisplayName="REGIONAL MANAGER" sap:VirtualizedContainerService.HintSize="450,491.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_8">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="sd:DataTable" Name="Report2" />
+                <Variable x:TypeArguments="sd:DataTable" Name="Report3" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:ExecuteQuery ContinueOnError="{x:Null}" ExistingDbConnection="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" ConnectionString="[In_Config(&quot;query_connect&quot;).ToString]" DataTable="[Report3]" DisplayName="Run query" sap:VirtualizedContainerService.HintSize="388,88.6666666666667" sap2010:WorkflowViewState.IdRef="ExecuteQuery_3" ProviderName="System.Data.Odbc" Sql="Select Distinct j.Region,&#xD;&#xA;       j.FZM,&#xD;&#xA;       j.staffnorms ,live_punch,less_10days,undernoticeperiod,shortage10days Missing10 ,surplus ,&#xD;&#xA;       actualshortage shortage,&#xD;&#xA;       /* m.emp_code,&#xD;&#xA;       m.emp_name,*/&#xD;&#xA;       max(m.last_punch_date) last_punch_date,&#xD;&#xA;       trunc(Sysdate-1) - trunc(max(m.last_punch_date)) lag_days&#xD;&#xA;  From TABLEAU_PUNCH_SHORTDATA_NEW j left outer Join&#xD;&#xA;       (Select Region REG_Name, Max(trunc(Pr_date+1)) last_punch_date&#xD;&#xA;  From (Select * From TABLEAU_PUNCH_SHORTDATA_NEW&#xD;&#xA;  union all&#xD;&#xA;  Select * From Tableau_Punch_Shortdt_New_Bkp)&#xD;&#xA; Where Post = 'REGIONAL MANAGER'&#xD;&#xA;   And  ActualShortage &lt;= 0&#xD;&#xA;   Group By Region) m&#xD;&#xA;          On(trim(m.REG_Name) = trim(j.region)),&#xD;&#xA;        (Select Distinct reg_id,REG_Name From mana0809.Branch_dtl_new@uatr_backup2 ) b&#xD;&#xA;Where TRUNC(j.pR_DATE) =&#xD;&#xA;       (Select max(TRUNC(p.pR_DATE)) From TABLEAU_PUNCH_SHORTDATA_NEW p)&#xD;&#xA;   And  ActualShortage &gt;= 1&#xD;&#xA;   And j.POST ='REGIONAL MANAGER'&#xD;&#xA;   And trim(j.region) = trim(b.Reg_name)&#xD;&#xA;-- And j.branch = 'SHOLAVANDAN'&#xD;&#xA; Group By j.Region, j.FZM, j.staffnorms ,live_punch,less_10days,&#xD;&#xA; undernoticeperiod,shortage10days,surplus , actualshortage&#xD;&#xA; union all&#xD;&#xA; Select Distinct j.Region,&#xD;&#xA;       j.FZM,&#xD;&#xA;       j.staffnorms ,live_punch,less_10days,undernoticeperiod,shortage10days Missing10 ,surplus ,&#xD;&#xA;       actualshortage shortage,&#xD;&#xA;       /* m.emp_code,&#xD;&#xA;       m.emp_name,*/&#xD;&#xA;       max(m.last_punch_date) last_punch_date,&#xD;&#xA;       trunc(Sysdate-1) - trunc(max(m.last_punch_date)) lag_days&#xD;&#xA;  From TABLEAU_PUNCH_SHORTDATA_NEW j left outer Join&#xD;&#xA;       (Select Region REG_Name, Max(trunc(Pr_date+1)) last_punch_date&#xD;&#xA;  From (Select * From TABLEAU_PUNCH_SHORTDATA_NEW&#xD;&#xA;  union all&#xD;&#xA;  Select * From Tableau_Punch_Shortdt_New_Bkp)&#xD;&#xA; Where Post = 'REGIONAL MANAGER'&#xD;&#xA;   And surplus &lt;= 0&#xD;&#xA;   Group By Region) m&#xD;&#xA;          On(trim(m.REG_Name) = trim(j.region)),&#xD;&#xA;        (Select Distinct reg_id,REG_Name From mana0809.Branch_dtl_new@uatr_backup2 ) b&#xD;&#xA;Where TRUNC(j.pR_DATE) =&#xD;&#xA;       (Select max(TRUNC(p.pR_DATE)) From TABLEAU_PUNCH_SHORTDATA_NEW p)&#xD;&#xA;   And surplus &gt;= 1&#xD;&#xA;   And j.POST = 'REGIONAL MANAGER'&#xD;&#xA;   And trim(j.region) = trim(b.Reg_name)&#xD;&#xA;-- And j.branch = 'SHOLAVANDAN'&#xD;&#xA; Group By j.Region, j.FZM, j.staffnorms ,live_punch,less_10days,&#xD;&#xA; undernoticeperiod,shortage10days,surplus , actualshortage">
+                <ui:ExecuteQuery.Parameters>
+                  <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                </ui:ExecuteQuery.Parameters>
+              </ui:ExecuteQuery>
+              <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[Report3]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="388,116" sap2010:WorkflowViewState.IdRef="WriteRange_3" SheetName="Regional Manager" WorkbookPath="[Folder_Path+In_Config(&quot;Excel_Path&quot;).ToString]" />
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,96" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;REGIONAL MANAGER Report downloading completed&quot;]" />
+            </Sequence>
+            <Sequence DisplayName="REGIONAL HEAD (AUDIT)" sap:VirtualizedContainerService.HintSize="450,491.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_9">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="sd:DataTable" Name="Report2" />
+                <Variable x:TypeArguments="sd:DataTable" Name="Report3" />
+                <Variable x:TypeArguments="sd:DataTable" Name="Report4" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:ExecuteQuery ContinueOnError="{x:Null}" ExistingDbConnection="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" ConnectionString="[In_Config(&quot;query_connect&quot;).ToString]" DataTable="[Report4]" DisplayName="Run query" sap:VirtualizedContainerService.HintSize="388,88.6666666666667" sap2010:WorkflowViewState.IdRef="ExecuteQuery_4" ProviderName="System.Data.Odbc" Sql=" Select Distinct j.Region,&#xA;       j.FZM,&#xA;       j.staffnorms,live_punch,less_10days,undernoticeperiod,shortage10days Missing10 ,surplus ,&#xA;       actualshortage shortage,&#xA;       /* m.emp_code,&#xA;       m.emp_name,*/&#xA;       max(m.last_punch_date) last_punch_date,&#xA;       trunc(Sysdate-1) - trunc(max(m.last_punch_date)) lag_days&#xA;  From TABLEAU_PUNCH_SHORTDATA_NEW j left outer Join&#xA;       (Select Region REG_Name, Max(trunc(Pr_date+1)) last_punch_date&#xA;  From (Select * From TABLEAU_PUNCH_SHORTDATA_NEW&#xA;  union all&#xA;  Select * From Tableau_Punch_Shortdt_New_Bkp)&#xA; Where Post = 'REGIONAL HEAD (AUDIT) '&#xA;   And  ActualShortage &lt;= 0&#xA;   Group By Region) m&#xA;          On(trim(m.REG_Name) = trim(j.region)),&#xA;        (Select Distinct reg_id,REG_Name From mana0809.Branch_dtl_new@uatr_backup2 ) b&#xA;Where TRUNC(j.pR_DATE) =&#xA;       (Select max(TRUNC(p.pR_DATE)) From TABLEAU_PUNCH_SHORTDATA_NEW p)&#xA;   And  ActualShortage &gt;= 1&#xA;   And j.POST = 'REGIONAL HEAD (AUDIT) '&#xA;   And trim(j.region) = trim(b.Reg_name)&#xA;-- And j.branch = 'SHOLAVANDAN'&#xA; Group By j.Region, j.FZM, j.staffnorms ,live_punch,less_10days,&#xA; undernoticeperiod,shortage10days,surplus , actualshortage&#xA; union all&#xA; Select Distinct j.Region,&#xA;       j.FZM,&#xA;       j.staffnorms ,live_punch,less_10days,undernoticeperiod,shortage10days Missing10 ,surplus ,&#xA;       actualshortage shortage,&#xA;       /* m.emp_code,&#xA;       m.emp_name,*/&#xA;       max(m.last_punch_date) last_punch_date,&#xA;       trunc(Sysdate-1) - trunc(max(m.last_punch_date)) lag_days&#xA;  From TABLEAU_PUNCH_SHORTDATA_NEW j left outer Join&#xA;       (Select Region REG_Name, Max(trunc(Pr_date+1)) last_punch_date&#xA;  From (Select * From TABLEAU_PUNCH_SHORTDATA_NEW&#xA;  union all&#xA;  Select * From Tableau_Punch_Shortdt_New_Bkp)&#xA; Where Post = 'REGIONAL HEAD (AUDIT) '&#xA;   And surplus &lt;= 0&#xA;   Group By Region) m&#xA;          On(trim(m.REG_Name) = trim(j.region)),&#xA;        (Select Distinct reg_id,REG_Name From mana0809.Branch_dtl_new@uatr_backup2 ) b&#xA;Where TRUNC(j.pR_DATE) =&#xA;       (Select max(TRUNC(p.pR_DATE)) From TABLEAU_PUNCH_SHORTDATA_NEW p)&#xA;   And surplus &gt;= 1&#xA;   And j.POST = 'REGIONAL HEAD (AUDIT) '&#xA;   And trim(j.region) = trim(b.Reg_name)&#xA;-- And j.branch = 'SHOLAVANDAN'&#xA; Group By j.Region, j.FZM, j.staffnorms ,live_punch,less_10days,&#xA; undernoticeperiod,shortage10days,surplus , actualshortage">
+                <ui:ExecuteQuery.Parameters>
+                  <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                </ui:ExecuteQuery.Parameters>
+              </ui:ExecuteQuery>
+              <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[Report4]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="388,116" sap2010:WorkflowViewState.IdRef="WriteRange_4" SheetName="Regional Head Audit" WorkbookPath="[Folder_Path+In_Config(&quot;Excel_Path&quot;).ToString]" />
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,96" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;RHA Report downloading completed&quot;]" />
+            </Sequence>
+            <Sequence DisplayName="ARM/AM-SECURITY" sap:VirtualizedContainerService.HintSize="450,84.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="sd:DataTable" Name="Report2" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:ExecuteQuery ContinueOnError="{x:Null}" ExistingDbConnection="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" ConnectionString="[In_Config(&quot;query_connect&quot;).ToString]" DataTable="[Report2]" DisplayName="Run query" sap:VirtualizedContainerService.HintSize="388,88.6666666666667" sap2010:WorkflowViewState.IdRef="ExecuteQuery_2" ProviderName="System.Data.Odbc" Sql="Select Distinct j.Region,&#xA;       j.FZM,&#xA;       j.staffnorms ,live_punch,less_10days,undernoticeperiod,shortage10days Missing10 ,surplus ,&#xA;       actualshortage shortage,&#xA;       /* m.emp_code,&#xA;       m.emp_name,*/&#xA;       max(m.last_punch_date) last_punch_date,&#xA;       trunc(Sysdate-1) - trunc(max(m.last_punch_date)) lag_days&#xA;  From TABLEAU_PUNCH_SHORTDATA_NEW j left outer Join&#xA;       (Select Region REG_Name, Max(trunc(Pr_date+1)) last_punch_date&#xA;  From (Select * From TABLEAU_PUNCH_SHORTDATA_NEW&#xA;  union all&#xA;  Select * From Tableau_Punch_Shortdt_New_Bkp)&#xA; Where Post = 'ARM/AM-SECURITY'&#xA;   And  ActualShortage &lt;= 0&#xA;   Group By Region) m&#xA;          On(trim(m.REG_Name) = trim(j.region)),&#xA;        (Select Distinct reg_id,REG_Name From mana0809.Branch_dtl_new@uatr_backup2 ) b&#xA;Where TRUNC(j.pR_DATE) =&#xA;       (Select max(TRUNC(p.pR_DATE)) From TABLEAU_PUNCH_SHORTDATA_NEW p)&#xA;   And  ActualShortage &gt;= 1&#xA;   And j.POST = 'ARM/AM-SECURITY '&#xA;   And trim(j.region) = trim(b.Reg_name)&#xA;-- And j.branch = 'SHOLAVANDAN'&#xA; Group By j.Region, j.FZM, j.staffnorms ,live_punch,less_10days,&#xA; undernoticeperiod,shortage10days,surplus , actualshortage&#xA; union all&#xA; Select Distinct j.Region,&#xA;       j.FZM,&#xA;       j.staffnorms ,live_punch,less_10days,undernoticeperiod,shortage10days Missing10 ,surplus ,&#xA;       actualshortage shortage,&#xA;       /* m.emp_code,&#xA;       m.emp_name,*/&#xA;       max(m.last_punch_date) last_punch_date,&#xA;       trunc(Sysdate-1) - trunc(max(m.last_punch_date)) lag_days&#xA;  From TABLEAU_PUNCH_SHORTDATA_NEW j left outer Join&#xA;       (Select Region REG_Name, Max(trunc(Pr_date+1)) last_punch_date&#xA;  From (Select * From TABLEAU_PUNCH_SHORTDATA_NEW&#xA;  union all&#xA;  Select * From Tableau_Punch_Shortdt_New_Bkp)&#xA; Where Post = 'ARM/AM-SECURITY'&#xA;   And surplus &lt;= 0&#xA;   Group By Region) m&#xA;          On(trim(m.REG_Name) = trim(j.region)),&#xA;        (Select Distinct reg_id,REG_Name From mana0809.Branch_dtl_new@uatr_backup2 ) b&#xA;Where TRUNC(j.pR_DATE) =&#xA;       (Select max(TRUNC(p.pR_DATE)) From TABLEAU_PUNCH_SHORTDATA_NEW p)&#xA;   And surplus &gt;= 1&#xA;   And j.POST = 'ARM/AM-SECURITY '&#xA;   And trim(j.region) = trim(b.Reg_name)&#xA;-- And j.branch = 'SHOLAVANDAN'&#xA; Group By j.Region, j.FZM, j.staffnorms ,live_punch,less_10days,&#xA; undernoticeperiod,shortage10days,surplus , actualshortage">
+                <ui:ExecuteQuery.Parameters>
+                  <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                </ui:ExecuteQuery.Parameters>
+              </ui:ExecuteQuery>
+              <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[Report2]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="388,116" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="ARM-AM Security" WorkbookPath="[Folder_Path+In_Config(&quot;Excel_Path&quot;).ToString]" />
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,96" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;ARM/AM-SECURITY Report downloading completed&quot;]" />
+            </Sequence>
+            <Sequence DisplayName="AH Report" sap:VirtualizedContainerService.HintSize="450,84.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="sd:DataTable" Name="Report1" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:ExecuteQuery ContinueOnError="{x:Null}" ExistingDbConnection="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" ConnectionString="[In_Config(&quot;query_connect&quot;).ToString]" DataTable="[Report1]" DisplayName="Run query" sap:VirtualizedContainerService.HintSize="388,88.6666666666667" sap2010:WorkflowViewState.IdRef="ExecuteQuery_1" ProviderName="System.Data.Odbc" Sql="Select Distinct j.Region,&#xA;       j.Area,&#xA;       j.FZM,&#xA;       j.staffnorms ,live_punch,less_10days,undernoticeperiod,shortage10days Missing10 ,surplus ,&#xA;       actualshortage shortage,&#xA;       /* m.emp_code,&#xA;       m.emp_name,*/&#xA;       max(m.last_punch_date) last_punch_date,&#xA;       trunc(Sysdate-1) - trunc(max(m.last_punch_date)) lag_days&#xA;  From TABLEAU_PUNCH_SHORTDATA_NEW j left outer Join&#xA;       (Select Area Area_Name, Max(trunc(Pr_date+1)) last_punch_date&#xA;  From (Select * From TABLEAU_PUNCH_SHORTDATA_NEW&#xA;  union all&#xA;  Select * From Tableau_Punch_Shortdt_New_Bkp)&#xA; Where Post = 'AREA HEAD'&#xA;   And  ActualShortage &lt;= 0&#xA;   Group By Area) m&#xA;          On(trim(m.Area_Name) = trim(j.Area)),&#xA;        (Select Distinct Area_id,Area_name From mana0809.Branch_dtl_new@uatr_backup2 ) b&#xA;Where TRUNC(j.pR_DATE) =&#xA;       (Select max(TRUNC(p.pR_DATE)) From TABLEAU_PUNCH_SHORTDATA_NEW p)&#xA;   And  ActualShortage &gt;= 1&#xA;   And j.POST = 'AREA HEAD '&#xA;   And trim(j.Area) = trim(b.Area_name)&#xA;-- And j.branch = 'SHOLAVANDAN'&#xA; Group By j.Region, j.Area, j.FZM, j.staffnorms ,live_punch,less_10days,&#xA; undernoticeperiod,shortage10days ,surplus, actualshortage&#xA; &#xA; Union all&#xA; Select Distinct j.Region,&#xA;       j.Area,&#xA;       j.FZM,&#xA;       j.staffnorms ,live_punch,less_10days,undernoticeperiod,shortage10days Missing10 ,surplus ,&#xA;       actualshortage shortage,&#xA;       /* m.emp_code,&#xA;       m.emp_name,*/&#xA;       max(m.last_punch_date) last_punch_date,&#xA;       trunc(Sysdate-1) - trunc(max(m.last_punch_date)) lag_days&#xA;  From TABLEAU_PUNCH_SHORTDATA_NEW j left outer Join&#xA;       (Select Area Area_Name, Max(trunc(Pr_date+1)) last_punch_date&#xA;  From (Select * From TABLEAU_PUNCH_SHORTDATA_NEW&#xA;  union all&#xA;  Select * From Tableau_Punch_Shortdt_New_Bkp)&#xA; Where Post = 'AREA HEAD'&#xA;   And surplus &lt;= 0&#xA;   Group By Area) m&#xA;          On(trim(m.Area_Name) = trim(j.Area)),&#xA;        (Select Distinct Area_id,Area_name From mana0809.Branch_dtl_new@uatr_backup2 ) b&#xA;Where TRUNC(j.pR_DATE) =&#xA;       (Select max(TRUNC(p.pR_DATE)) From TABLEAU_PUNCH_SHORTDATA_NEW p)&#xA;   And surplus &gt;= 1&#xA;   And j.POST = 'AREA HEAD '&#xA;   And trim(j.Area) = trim(b.Area_name)&#xA;-- And j.branch = 'SHOLAVANDAN'&#xA; Group By j.Region, j.Area, j.FZM, j.staffnorms ,live_punch,less_10days,&#xA; undernoticeperiod,shortage10days ,surplus, actualshortage">
+                <ui:ExecuteQuery.Parameters>
+                  <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                </ui:ExecuteQuery.Parameters>
+              </ui:ExecuteQuery>
+              <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[Report1]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="388,116" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Area Head" WorkbookPath="[Folder_Path+In_Config(&quot;Excel_Path&quot;).ToString]" />
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,96" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;AH Report downloading completed&quot;]" />
+            </Sequence>
+            <Sequence DisplayName="INTERNAL AUDITOR" sap:VirtualizedContainerService.HintSize="450,84.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_10">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="sd:DataTable" Name="Report2" />
+                <Variable x:TypeArguments="sd:DataTable" Name="Report3" />
+                <Variable x:TypeArguments="sd:DataTable" Name="Report4" />
+                <Variable x:TypeArguments="sd:DataTable" Name="Report5" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:ExecuteQuery ContinueOnError="{x:Null}" ExistingDbConnection="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" ConnectionString="[In_Config(&quot;query_connect&quot;).ToString]" DataTable="[Report5]" DisplayName="Run query" sap:VirtualizedContainerService.HintSize="388,89" sap2010:WorkflowViewState.IdRef="ExecuteQuery_5" ProviderName="System.Data.Odbc" Sql="select t.region,&#xA;        t.fzm FZM,&#xA;        t.staffnorms Norms,&#xA;        t.live_punch,&#xA;        t.less_10days,&#xA;        t.undernoticeperiod UNP,&#xA;        t.shortage10days,&#xA;        t.surplus Surplus,&#xA;        t.actualshortage Shortage&#xA;   from tableau_punch_shortdata_new t&#xA;  where trunc(PR_DATE) = (case&#xA;                           when trunc(sysdate, 'd') + 1 = trunc(sysdate) then&#xA;                            trunc(sysdate) - 2&#xA;                           else&#xA;                            trunc(sysdate) - 1&#xA;                         end)&#xA;    and post = 'INTERNAL AUDITOR'&#xA;    and (t.actualshortage &gt;= 1 or t.surplus &gt;= 1)">
+                <ui:ExecuteQuery.Parameters>
+                  <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                </ui:ExecuteQuery.Parameters>
+              </ui:ExecuteQuery>
+              <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[Report5]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="388,116" sap2010:WorkflowViewState.IdRef="WriteRange_5" SheetName="Internal Auditor" WorkbookPath="[Folder_Path+In_Config(&quot;Excel_Path&quot;).ToString]" />
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;INTERNAL AUDITOR Report downloading completed&quot;]" />
+            </Sequence>
+          </Sequence>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="512,96" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Info" Message="[&quot;Query running of report downloading is completed&quot;]" />
+          <Assign sap:VirtualizedContainerService.HintSize="512,85.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_2">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Boolean">[Arg_Status]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="578.666666666667,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence sap:VirtualizedContainerService.HintSize="450,306.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_18">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,96" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Error" Message="[exception.Message]" />
+              <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Boolean">[Arg_Status]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                </Assign.Value>
+              </Assign>
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+  </Sequence>
+</Activity>

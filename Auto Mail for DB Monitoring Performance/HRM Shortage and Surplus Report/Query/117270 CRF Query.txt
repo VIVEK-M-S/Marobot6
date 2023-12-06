@@ -1,0 +1,248 @@
+1.REGIONAL MANAGER
+
+Select Distinct j.Region,
+       j.FZM,
+       j.staffnorms ,live_punch,less_10days,undernoticeperiod,shortage10days Missing10 ,surplus ,
+       actualshortage shortage,
+       /* m.emp_code,
+       m.emp_name,*/
+       max(m.last_punch_date) last_punch_date,
+       trunc(Sysdate-1) - trunc(max(m.last_punch_date)) lag_days
+  From TABLEAU_PUNCH_SHORTDATA_NEW j left outer Join
+       (Select Region REG_Name, Max(trunc(Pr_date+1)) last_punch_date
+  From (Select * From TABLEAU_PUNCH_SHORTDATA_NEW
+  union all
+  Select * From Tableau_Punch_Shortdt_New_Bkp)
+ Where Post = 'REGIONAL MANAGER'
+   And  ActualShortage <= 0
+   Group By Region) m
+          On(trim(m.REG_Name) = trim(j.region)),
+        (Select Distinct reg_id,REG_Name From mana0809.Branch_dtl_new@uatr_backup2 ) b
+Where TRUNC(j.pR_DATE) =
+       (Select max(TRUNC(p.pR_DATE)) From TABLEAU_PUNCH_SHORTDATA_NEW p)
+   And  ActualShortage >= 1
+   And j.POST ='REGIONAL MANAGER'
+   And trim(j.region) = trim(b.Reg_name)
+-- And j.branch = 'SHOLAVANDAN'
+ Group By j.Region, j.FZM, j.staffnorms ,live_punch,less_10days,
+ undernoticeperiod,shortage10days,surplus , actualshortage
+ union all
+ Select Distinct j.Region,
+       j.FZM,
+       j.staffnorms ,live_punch,less_10days,undernoticeperiod,shortage10days Missing10 ,surplus ,
+       actualshortage shortage,
+       /* m.emp_code,
+       m.emp_name,*/
+       max(m.last_punch_date) last_punch_date,
+       trunc(Sysdate-1) - trunc(max(m.last_punch_date)) lag_days
+  From TABLEAU_PUNCH_SHORTDATA_NEW j left outer Join
+       (Select Region REG_Name, Max(trunc(Pr_date+1)) last_punch_date
+  From (Select * From TABLEAU_PUNCH_SHORTDATA_NEW
+  union all
+  Select * From Tableau_Punch_Shortdt_New_Bkp)
+ Where Post = 'REGIONAL MANAGER'
+   And surplus <= 0
+   Group By Region) m
+          On(trim(m.REG_Name) = trim(j.region)),
+        (Select Distinct reg_id,REG_Name From mana0809.Branch_dtl_new@uatr_backup2 ) b
+Where TRUNC(j.pR_DATE) =
+       (Select max(TRUNC(p.pR_DATE)) From TABLEAU_PUNCH_SHORTDATA_NEW p)
+   And surplus >= 1
+   And j.POST = 'REGIONAL MANAGER'
+   And trim(j.region) = trim(b.Reg_name)
+-- And j.branch = 'SHOLAVANDAN'
+ Group By j.Region, j.FZM, j.staffnorms ,live_punch,less_10days,
+ undernoticeperiod,shortage10days,surplus , actualshortage
+
+
+2.REGIONAL HEAD(AUDIT)
+
+ Select Distinct j.Region,
+       j.FZM,
+       j.staffnorms,live_punch,less_10days,undernoticeperiod,shortage10days Missing10 ,surplus ,
+       actualshortage shortage,
+       /* m.emp_code,
+       m.emp_name,*/
+       max(m.last_punch_date) last_punch_date,
+       trunc(Sysdate-1) - trunc(max(m.last_punch_date)) lag_days
+  From TABLEAU_PUNCH_SHORTDATA_NEW j left outer Join
+       (Select Region REG_Name, Max(trunc(Pr_date+1)) last_punch_date
+  From (Select * From TABLEAU_PUNCH_SHORTDATA_NEW
+  union all
+  Select * From Tableau_Punch_Shortdt_New_Bkp)
+ Where Post = 'REGIONAL HEAD (AUDIT) '
+   And  ActualShortage <= 0
+   Group By Region) m
+          On(trim(m.REG_Name) = trim(j.region)),
+        (Select Distinct reg_id,REG_Name From mana0809.Branch_dtl_new@uatr_backup2 ) b
+Where TRUNC(j.pR_DATE) =
+       (Select max(TRUNC(p.pR_DATE)) From TABLEAU_PUNCH_SHORTDATA_NEW p)
+   And  ActualShortage >= 1
+   And j.POST = 'REGIONAL HEAD (AUDIT) '
+   And trim(j.region) = trim(b.Reg_name)
+-- And j.branch = 'SHOLAVANDAN'
+ Group By j.Region, j.FZM, j.staffnorms ,live_punch,less_10days,
+ undernoticeperiod,shortage10days,surplus , actualshortage
+ union all
+ Select Distinct j.Region,
+       j.FZM,
+       j.staffnorms ,live_punch,less_10days,undernoticeperiod,shortage10days Missing10 ,surplus ,
+       actualshortage shortage,
+       /* m.emp_code,
+       m.emp_name,*/
+       max(m.last_punch_date) last_punch_date,
+       trunc(Sysdate-1) - trunc(max(m.last_punch_date)) lag_days
+  From TABLEAU_PUNCH_SHORTDATA_NEW j left outer Join
+       (Select Region REG_Name, Max(trunc(Pr_date+1)) last_punch_date
+  From (Select * From TABLEAU_PUNCH_SHORTDATA_NEW
+  union all
+  Select * From Tableau_Punch_Shortdt_New_Bkp)
+ Where Post = 'REGIONAL HEAD (AUDIT) '
+   And surplus <= 0
+   Group By Region) m
+          On(trim(m.REG_Name) = trim(j.region)),
+        (Select Distinct reg_id,REG_Name From mana0809.Branch_dtl_new@uatr_backup2 ) b
+Where TRUNC(j.pR_DATE) =
+       (Select max(TRUNC(p.pR_DATE)) From TABLEAU_PUNCH_SHORTDATA_NEW p)
+   And surplus >= 1
+   And j.POST = 'REGIONAL HEAD (AUDIT) '
+   And trim(j.region) = trim(b.Reg_name)
+-- And j.branch = 'SHOLAVANDAN'
+ Group By j.Region, j.FZM, j.staffnorms ,live_punch,less_10days,
+ undernoticeperiod,shortage10days,surplus , actualshortage
+
+3.ARM/AM SECURITY
+
+Select Distinct j.Region,
+       j.FZM,
+       j.staffnorms ,live_punch,less_10days,undernoticeperiod,shortage10days Missing10 ,surplus ,
+       actualshortage shortage,
+       /* m.emp_code,
+       m.emp_name,*/
+       max(m.last_punch_date) last_punch_date,
+       trunc(Sysdate-1) - trunc(max(m.last_punch_date)) lag_days
+  From TABLEAU_PUNCH_SHORTDATA_NEW j left outer Join
+       (Select Region REG_Name, Max(trunc(Pr_date+1)) last_punch_date
+  From (Select * From TABLEAU_PUNCH_SHORTDATA_NEW
+  union all
+  Select * From Tableau_Punch_Shortdt_New_Bkp)
+ Where Post = 'ARM/AM-SECURITY'
+   And  ActualShortage <= 0
+   Group By Region) m
+          On(trim(m.REG_Name) = trim(j.region)),
+        (Select Distinct reg_id,REG_Name From mana0809.Branch_dtl_new@uatr_backup2 ) b
+Where TRUNC(j.pR_DATE) =
+       (Select max(TRUNC(p.pR_DATE)) From TABLEAU_PUNCH_SHORTDATA_NEW p)
+   And  ActualShortage >= 1
+   And j.POST = 'ARM/AM-SECURITY '
+   And trim(j.region) = trim(b.Reg_name)
+-- And j.branch = 'SHOLAVANDAN'
+ Group By j.Region, j.FZM, j.staffnorms ,live_punch,less_10days,
+ undernoticeperiod,shortage10days,surplus , actualshortage
+ union all
+ Select Distinct j.Region,
+       j.FZM,
+       j.staffnorms ,live_punch,less_10days,undernoticeperiod,shortage10days Missing10 ,surplus ,
+       actualshortage shortage,
+       /* m.emp_code,
+       m.emp_name,*/
+       max(m.last_punch_date) last_punch_date,
+       trunc(Sysdate-1) - trunc(max(m.last_punch_date)) lag_days
+  From TABLEAU_PUNCH_SHORTDATA_NEW j left outer Join
+       (Select Region REG_Name, Max(trunc(Pr_date+1)) last_punch_date
+  From (Select * From TABLEAU_PUNCH_SHORTDATA_NEW
+  union all
+  Select * From Tableau_Punch_Shortdt_New_Bkp)
+ Where Post = 'ARM/AM-SECURITY'
+   And surplus <= 0
+   Group By Region) m
+          On(trim(m.REG_Name) = trim(j.region)),
+        (Select Distinct reg_id,REG_Name From mana0809.Branch_dtl_new@uatr_backup2 ) b
+Where TRUNC(j.pR_DATE) =
+       (Select max(TRUNC(p.pR_DATE)) From TABLEAU_PUNCH_SHORTDATA_NEW p)
+   And surplus >= 1
+   And j.POST = 'ARM/AM-SECURITY '
+   And trim(j.region) = trim(b.Reg_name)
+-- And j.branch = 'SHOLAVANDAN'
+ Group By j.Region, j.FZM, j.staffnorms ,live_punch,less_10days,
+ undernoticeperiod,shortage10days,surplus , actualshortage
+
+4.AH REPORT
+
+Select Distinct j.Region,
+       j.Area,
+       j.FZM,
+       j.staffnorms ,live_punch,less_10days,undernoticeperiod,shortage10days Missing10 ,surplus ,
+       actualshortage shortage,
+       /* m.emp_code,
+       m.emp_name,*/
+       max(m.last_punch_date) last_punch_date,
+       trunc(Sysdate-1) - trunc(max(m.last_punch_date)) lag_days
+  From TABLEAU_PUNCH_SHORTDATA_NEW j left outer Join
+       (Select Area Area_Name, Max(trunc(Pr_date+1)) last_punch_date
+  From (Select * From TABLEAU_PUNCH_SHORTDATA_NEW
+  union all
+  Select * From Tableau_Punch_Shortdt_New_Bkp)
+ Where Post = 'AREA HEAD'
+   And  ActualShortage <= 0
+   Group By Area) m
+          On(trim(m.Area_Name) = trim(j.Area)),
+        (Select Distinct Area_id,Area_name From mana0809.Branch_dtl_new@uatr_backup2 ) b
+Where TRUNC(j.pR_DATE) =
+       (Select max(TRUNC(p.pR_DATE)) From TABLEAU_PUNCH_SHORTDATA_NEW p)
+   And  ActualShortage >= 1
+   And j.POST = 'AREA HEAD '
+   And trim(j.Area) = trim(b.Area_name)
+-- And j.branch = 'SHOLAVANDAN'
+ Group By j.Region, j.Area, j.FZM, j.staffnorms ,live_punch,less_10days,
+ undernoticeperiod,shortage10days ,surplus, actualshortage
+ 
+ Union all
+ Select Distinct j.Region,
+       j.Area,
+       j.FZM,
+       j.staffnorms ,live_punch,less_10days,undernoticeperiod,shortage10days Missing10 ,surplus ,
+       actualshortage shortage,
+       /* m.emp_code,
+       m.emp_name,*/
+       max(m.last_punch_date) last_punch_date,
+       trunc(Sysdate-1) - trunc(max(m.last_punch_date)) lag_days
+  From TABLEAU_PUNCH_SHORTDATA_NEW j left outer Join
+       (Select Area Area_Name, Max(trunc(Pr_date+1)) last_punch_date
+  From (Select * From TABLEAU_PUNCH_SHORTDATA_NEW
+  union all
+  Select * From Tableau_Punch_Shortdt_New_Bkp)
+ Where Post = 'AREA HEAD'
+   And surplus <= 0
+   Group By Area) m
+          On(trim(m.Area_Name) = trim(j.Area)),
+        (Select Distinct Area_id,Area_name From mana0809.Branch_dtl_new@uatr_backup2 ) b
+Where TRUNC(j.pR_DATE) =
+       (Select max(TRUNC(p.pR_DATE)) From TABLEAU_PUNCH_SHORTDATA_NEW p)
+   And surplus >= 1
+   And j.POST = 'AREA HEAD '
+   And trim(j.Area) = trim(b.Area_name)
+-- And j.branch = 'SHOLAVANDAN'
+ Group By j.Region, j.Area, j.FZM, j.staffnorms ,live_punch,less_10days,
+ undernoticeperiod,shortage10days ,surplus, actualshortage
+
+5.INTERNAL AUDITOR
+
+select t.region,
+        t.fzm FZM,
+        t.staffnorms Norms,
+        t.live_punch,
+        t.less_10days,
+        t.undernoticeperiod UNP,
+        t.shortage10days,
+        t.surplus Surplus,
+        t.actualshortage Shortage
+   from tableau_punch_shortdata_new t
+  where trunc(PR_DATE) = (case
+                           when trunc(sysdate, 'd') + 1 = trunc(sysdate) then
+                            trunc(sysdate) - 2
+                           else
+                            trunc(sysdate) - 1
+                         end)
+    and post = 'INTERNAL AUDITOR'
+    and (t.actualshortage >= 1 or t.surplus >= 1)
