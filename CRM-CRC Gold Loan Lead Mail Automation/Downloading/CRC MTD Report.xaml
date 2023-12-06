@@ -1,0 +1,175 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="CRC_MTD_Report" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="Arg_Status" Type="InOutArgument(x:Boolean)" />
+    <x:Property Name="Folder" Type="InOutArgument(x:String)" />
+    <x:Property Name="In_Config" Type="InOutArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1251,1281</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>CRC_MTD_Report_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="33">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.Database</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Database.Activities</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="62">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Database</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.Database.Activities</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="CRC_MTD_Report" sap:VirtualizedContainerService.HintSize="556,1216" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="514,1124" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Try>
+        <Sequence sap:VirtualizedContainerService.HintSize="476,897" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="sd:DataTable" Name="CRC_MTD_rpt" />
+            <Variable x:TypeArguments="sd:DataTable" Name="CRC_MTD_rpt_new" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:ExecuteQuery ContinueOnError="{x:Null}" ExistingDbConnection="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" ConnectionString="Dsn=Paper_Ad;uid=RPA_RO;pwd=Robot#123" DataTable="[CRC_MTD_rpt]" DisplayName="Run query" sap:VirtualizedContainerService.HintSize="434,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_1" ProviderName="System.Data.Odbc" Sql="select row_number() over(order by x.followup_id) as SlNo,&#xA;&#xA;       x.fzm_id,&#xA;&#xA;       x.fzm,&#xA;&#xA;       x.reg_id as Region_ID,&#xA;&#xA;       x.reg_name as Region_name,&#xA;&#xA;       x.area_id as Area_ID,&#xA;&#xA;       x.area_name as Area,&#xA;&#xA;       x.branch_id,&#xA;&#xA;       x.branch_name,&#xA;&#xA;       x.did_no as From_did,&#xA;&#xA;       x.initial_mobile_no as To_no,&#xA;&#xA;       case&#xA;&#xA;         when x.initial_mobile_no = x.mobile then&#xA;&#xA;          'NIL'&#xA;&#xA;         else&#xA;&#xA;          to_char(x.mobile)&#xA;&#xA;       end as Alternate_number,&#xA;&#xA;       x.cust_name  as Customer,&#xA;&#xA;       x.leadsource_name as Lead_Source,&#xA;&#xA;       x.products_name  as Interested_Product,&#xA;&#xA;       x.emp_code  as Emp_Code,&#xA;&#xA;       x.emp_name as Employee_Name,&#xA;&#xA;       x.col_language as Group_lang,&#xA;&#xA;       (x.inserted_on)  as Call_Date,&#xA;&#xA;       x.lead_date  as Lead_date,&#xA;&#xA;       (x.call_response_id) as Disposition,&#xA;&#xA;       x.intrested_status as Status,&#xA;&#xA;       x.response as Call_Response,&#xA;&#xA;       x.call_duration as Duration,&#xA;&#xA;       x.process as Process,&#xA;&#xA;       x.call_center_comment as Remarks,&#xA;&#xA;       x.pledge_weight  as Pledge_Weight,&#xA;&#xA;       x.pledge_amount  as Pledge_Amount&#xA;&#xA;  from (select distinct f.followup_id,&#xA;&#xA;                        g.fzm_id,&#xA;&#xA;                        g.fzm,&#xA;&#xA;                        d.branch_id,&#xA;&#xA;                        d.branch_name,&#xA;&#xA;                        d.reg_id,&#xA;&#xA;                        d.reg_name,&#xA;&#xA;                        d.area_id,&#xA;&#xA;                        d.area_name,&#xA;&#xA;                        e.did_no,&#xA;&#xA;                        f.initial_mobile_no,&#xA;&#xA;                        f.mobile,&#xA;&#xA;                        t.cust_name,&#xA;&#xA;                        c.leadsource_name,&#xA;&#xA;                        p.products_name,&#xA;&#xA;                        f.emp_code,&#xA;&#xA;                        e.emp_name,&#xA;&#xA;                        b.col_language,&#xA;&#xA;                        to_char(f.inserted_on, 'DD-MM-YYYY HH24:Mi:SS') inserted_on,&#xA;&#xA;                        decode(f.call_status, 1, 'ANSWERED', 0, 'NO ANSWER',2,'BUSY',3,'FAILED',null,'FAILED') call_response_id,&#xA;&#xA;                        decode(f.intrested_status,&#xA;&#xA;                               1,&#xA;&#xA;                               'INTERESTED',&#xA;&#xA;                               2,&#xA;&#xA;                               'NOT INTERESTED',3,'call back') intrested_status,&#xA;&#xA;                        decode(f.call_response_id,&#xA;&#xA;                               1,&#xA;&#xA;                               'ANSWERED',&#xA;&#xA;                               2,&#xA;&#xA;                               'NOT ATTENTED',&#xA;&#xA;                               3,&#xA;&#xA;                               'NOT REACHABLE',&#xA;&#xA;                               4,&#xA;&#xA;                               'SWITCHED OFF',&#xA;&#xA;                               5,&#xA;&#xA;                               'NOT REACHABLE',&#xA;&#xA;                               7,&#xA;&#xA;                               'INCOMING CALL') response,&#xA;&#xA;                        f.call_duration call_duration,&#xA;&#xA;                        decode(f.process, 1, 'Incoming', 2, 'Outgoing') process,&#xA;&#xA;                        t.lead_date,&#xA;&#xA;                        f.call_center_comment,&#xA;&#xA;                        t.pledge_weight,&#xA;&#xA;                        t.pledge_amount&#xA;&#xA;          from mana0809.tbl_crc_mst t, mana0809.tbl_crc_followup_dtl f&#xA;&#xA;          left join mana0809.tbl_crc_products p&#xA;&#xA;            on p.products_id = f.interested_products_id,&#xA;&#xA;         mana0809.tbl_leadsource_category c, mana0809.tbl_crc_emp_dtls e,&#xA;&#xA;         mana0809.tbl_crc_bucket_emp_dtl b, mana0809.branch_dtl_new d,&#xA;&#xA;         mana0809.tbl_fzm_master g&#xA;&#xA;         where t.lead_id = f.lead_id&#xA;&#xA;           and f.emp_code = e.emp_code&#xA;&#xA;           and b.bucket_id = t.bucket_id&#xA;&#xA;           and t.followup_status = 1&#xA;&#xA;           and t.branch_id = d.branch_id&#xA;&#xA;           and c.leadsource_id = t.lead_source_cat&#xA;&#xA;           and t.lead_source_cat = 8&#xA;&#xA;           and d.reg_id = g.region_id&#xA;&#xA;           and trunc(t.lead_date) = trunc(f.inserted_on) and f.intrested_status=1 and p.products_id in   (1,22,25,26)&#xA;&#xA;           and trunc(f.inserted_on) between to_date(last_day(add_months(SYSDATE-1, -1)) + 1)  and to_date(sysdate)-1&#xA;&#xA;         order by inserted_on) x&#xA;">
+            <ui:ExecuteQuery.Parameters>
+              <scg:Dictionary x:TypeArguments="x:String, Argument" />
+            </ui:ExecuteQuery.Parameters>
+          </ui:ExecuteQuery>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;CRC MTD report downloading query execution completed&quot;]" />
+          <ui:FilterDataTable DataTable="[CRC_MTD_rpt]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="434,160" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[CRC_MTD_rpt_new]" SelectColumnsMode="Keep">
+            <ui:FilterDataTable.Filters>
+              <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+                <ui:FilterOperationArgument Column="{x:Null}" Operand="{x:Null}" BooleanOperator="And" Operator="LT" />
+              </scg:List>
+            </ui:FilterDataTable.Filters>
+            <ui:FilterDataTable.SelectColumns>
+              <scg:List x:TypeArguments="InArgument" Capacity="16">
+                <InArgument x:TypeArguments="x:String">["BRANCH_ID"]</InArgument>
+                <InArgument x:TypeArguments="x:String">["BRANCH_NAME"]</InArgument>
+                <InArgument x:TypeArguments="x:String">["REGION_ID"]</InArgument>
+                <InArgument x:TypeArguments="x:String">["REGION_NAME"]</InArgument>
+                <InArgument x:TypeArguments="x:String">["AREA_ID"]</InArgument>
+                <InArgument x:TypeArguments="x:String">["AREA"]</InArgument>
+                <InArgument x:TypeArguments="x:String">["TO_NO"]</InArgument>
+                <InArgument x:TypeArguments="x:String">["CUSTOMER"]</InArgument>
+                <InArgument x:TypeArguments="x:String">["INTERESTED_PRODUCT"]</InArgument>
+                <InArgument x:TypeArguments="x:String">["CALL_DATE"]</InArgument>
+                <InArgument x:TypeArguments="x:String">["REMARKS"]</InArgument>
+              </scg:List>
+            </ui:FilterDataTable.SelectColumns>
+          </ui:FilterDataTable>
+          <ui:WriteRange AddHeaders="True" DataTable="[CRC_MTD_rpt_new]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="434,115" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="CRC MTD" StartingCell="A1" WorkbookPath="[Folder+In_Config(&quot;CRM_Report&quot;).ToString]" />
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;CRC MTD report writed in excel&quot;]" />
+          <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Boolean">[Arg_Status]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence sap:VirtualizedContainerService.HintSize="376,283" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Error" Message="[exception.Message]" />
+              <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Boolean">[Arg_Status]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                </Assign.Value>
+              </Assign>
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+  </Sequence>
+</Activity>

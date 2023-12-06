@@ -1,0 +1,153 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="CRM_Daily_Summary_Report" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="Arg_Status" Type="InOutArgument(x:Boolean)" />
+    <x:Property Name="Folder" Type="InOutArgument(x:String)" />
+    <x:Property Name="In_Config" Type="InOutArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>933,1201</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>CRM_Daily_Summary_Report_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="58">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.Database</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Database.Activities</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Reflection</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="38">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.Database</AssemblyReference>
+      <AssemblyReference>UiPath.Database.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="CRM_Daily_Summary_Report" sap:VirtualizedContainerService.HintSize="500,1136" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,1014" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Variables>
+        <Variable x:TypeArguments="sd:DataTable" Name="CRM_Daily_summary" />
+      </TryCatch.Variables>
+      <TryCatch.Try>
+        <Sequence sap:VirtualizedContainerService.HintSize="400,777" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:ExecuteQuery ContinueOnError="{x:Null}" ExistingDbConnection="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" ConnectionString="Dsn=RPA_RO;uid=RPA_RO;pwd=Robot#123" DataTable="[CRM_Daily_summary]" DisplayName="Run query" sap:VirtualizedContainerService.HintSize="338,98" sap2010:WorkflowViewState.IdRef="ExecuteQuery_1" ProviderName="System.Data.Odbc" Sql="select x.product ,count(Docket_No) Product_count  from (select a.registration_date,&#xD;&#xA;       a.complaint_id as Docket_No,&#xD;&#xA;       decode(a.customer_type, '1', 'Customer', '2', 'Non customer') Customer_type,&#xD;&#xA;       decode(a.customer_call,&#xD;&#xA;              '1',&#xD;&#xA;              'enquerry',&#xD;&#xA;              '2',&#xD;&#xA;              'compliant',&#xD;&#xA;              '3',&#xD;&#xA;              'suggestion') Customer_call,&#xD;&#xA;       decode(a.customer_serch,&#xD;&#xA;              '0',&#xD;&#xA;              'Mobile no',&#xD;&#xA;              '1',&#xD;&#xA;              'Customer_id',&#xD;&#xA;              '2',&#xD;&#xA;              'Pledge_no') Customer_search,&#xD;&#xA;       a.source,&#xD;&#xA;       a.enterd_by as Assigned_User,&#xD;&#xA;       b.call_type as Ticket_Type,&#xD;&#xA;       a.priority,&#xD;&#xA;       c.dispositionname,&#xD;&#xA;       d.subdispositionname,&#xD;&#xA;       a.natureofcomplaint,&#xD;&#xA;       a.customer_name,&#xD;&#xA;       a.contactno,&#xD;&#xA;       a.details_of_complaint,&#xD;&#xA;       a.modified_date,&#xD;&#xA;       a.registration_date as close_time,&#xD;&#xA;       a.language,&#xD;&#xA;       a.abit_mafil,&#xD;&#xA;       a.branch_id,&#xD;&#xA;       bt.BRANCH_NAME,&#xD;&#xA;       bt.state_name,&#xD;&#xA;       bt.reg_name,&#xD;&#xA;       bt.area_name,&#xD;&#xA;       a.product,&#xD;&#xA;       a.appointmentdate,&#xD;&#xA;       a.existng_cust_no,&#xD;&#xA;       a.pin_code,&#xD;&#xA;       bb.branch_addr || ',' || bb.branch_add1 || ',' || bb.branch_add2 || ',' ||&#xD;&#xA;       bb.branch_add3 || ',' || bb.branch_add4 || ',' || bb.branch_add5 branch_Address,&#xD;&#xA;       decode(a.status, '0', 'New_data', '1', 'Modification_data') status_type,&#xD;&#xA;       a.EXISTING_CUST_NAME,&#xD;&#xA;       a.EXIS_CUST_MOB,&#xD;&#xA;       a.cust_call_frm,&#xD;&#xA;       a.non_cust_call_frm,&#xD;&#xA;       a.MODIFIED_BY,&#xD;&#xA;       a.MODIFIED_DATE,&#xD;&#xA;       s.ticket_st,&#xD;&#xA;       i.action_type,&#xD;&#xA;       a.ticket_remarks,&#xD;&#xA;       a.pledge_weight,&#xD;&#xA;       a.pledge_amount,&#xD;&#xA;       a.EMPLOYMENT_PROFILE&#xD;&#xA;  from mana0809.CRM_CUSTOMER_REGISTRATION a&#xD;&#xA;  JOIN mana0809.tbl_crm_calltype b&#xD;&#xA;    ON (A.CALLTYPE = B.ID)&#xD;&#xA;  JOIN mana0809.tbl_crm_dispositionname c&#xD;&#xA;    ON (A.DISPOSITION = C.DISPOSITION_ID)&#xD;&#xA;  JOIN mana0809.tbl_crm_subdisposition d&#xD;&#xA;    ON (A.Subdisposition = D.SUBDISPOSITION_ID)&#xD;&#xA;  JOIN mana0809.branch_dtl_new bt&#xD;&#xA;    ON (A.BRANCH_ID = BT.BRANCH_ID)&#xD;&#xA;  JOIN mana0809.branch_master bb&#xD;&#xA;    ON (BT.BRANCH_ID = BB.BRANCH_ID)&#xD;&#xA;  LEFT JOIN mana0809.TBL_CRM_TICKET_STATUS s&#xD;&#xA;    ON (A.TICKET_ST = S.TICKET_ID)&#xD;&#xA;  LEFT JOIN mana0809.TBL_CRM_INTERNAL_ACTION i&#xD;&#xA;    ON (A.INTERNAL_ACTION = I.ACTION_ID)&#xD;&#xA; where a.product in ('BA Model','Gold Loan','Online Gold Loan','Door step Gold Loan')  and b.call_type='Lead' and to_date(a.registration_date) = to_date(sysdate)-1) x group by x.product">
+            <ui:ExecuteQuery.Parameters>
+              <scg:Dictionary x:TypeArguments="x:String, Argument" />
+            </ui:ExecuteQuery.Parameters>
+          </ui:ExecuteQuery>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;CRM daily report summary query execution completed&quot;]" />
+          <ui:WriteRange AddHeaders="True" DataTable="[CRM_Daily_summary]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="338,125" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="CRM Yesterday Summary" StartingCell="A1" WorkbookPath="[Folder+In_Config(&quot;CRM_Summary_Report&quot;).ToString]" />
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;CRM daily report summary writed in excel&quot;]" />
+          <Assign sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_2">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Boolean">[Arg_Status]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence sap:VirtualizedContainerService.HintSize="376,283" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Error" Message="[exception.Message]" />
+              <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Boolean">[Arg_Status]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                </Assign.Value>
+              </Assign>
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+  </Sequence>
+</Activity>
