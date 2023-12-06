@@ -1,0 +1,6 @@
+Sub ChangeFormatTD(sht As String)
+    Dim sh As Worksheet
+    Set sh= ThisWorkbook.Sheets(sht)
+    sh.Columns ("E:E").NumberFormat="0"
+    sh.Columns ("AZ:AZ").NumberFormat="0"
+End Sub
