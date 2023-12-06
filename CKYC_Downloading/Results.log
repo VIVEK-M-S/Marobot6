@@ -1,0 +1,9 @@
+
+SQL*Loader: Release 19.0.0.0.0 - Production on Wed Aug 10 15:57:28 2022
+Version 19.3.0.0.0
+
+Copyright (c) 1982, 2019, Oracle and/or its affiliates.  All rights reserved.
+
+SQL*Loader-500: Unable to open file (Control.txt)
+SQL*Loader-553: file not found
+SQL*Loader-509: System error: The system cannot find the file specified.
