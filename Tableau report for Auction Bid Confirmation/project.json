@@ -1,0 +1,66 @@
+{
+  "name": "Tableau report for Auction Bid Confirmation",
+  "description": "Tableau report for Auction Bid Confirmation",
+  "main": "Main.xaml",
+  "dependencies": {
+    "BalaReva.DataTable.Activities": "[3.0.1]",
+    "BalaReva.EasyExcel.Activities": "[29.1.2]",
+    "BalaReva.Excel.Activities": "[2021.0.0]",
+    "ClearDirectory.Activities": "[1.0.6]",
+    "ExcelConverter.Activities": "[1.0.0]",
+    "UiPath.Excel.Activities": "[2.16.0]",
+    "UiPath.Mail.Activities": "[1.18.1]",
+    "UiPath.System.Activities": "[22.10.3]",
+    "UiPath.UIAutomation.Activities": "[22.10.3]",
+    "UiPathTeam.DatatableConverter.Activities": "[1.0.1]",
+    "UiPathTeam.FileConverter.Activities": "[0.0.6814.35837]"
+  },
+  "webServices": [],
+  "entitiesStores": [],
+  "schemaVersion": "4.0",
+  "studioVersion": "22.4.4.0",
+  "projectVersion": "1.0.2",
+  "runtimeOptions": {
+    "autoDispose": false,
+    "netFrameworkLazyLoading": false,
+    "isPausable": true,
+    "isAttended": false,
+    "requiresUserInteraction": true,
+    "supportsPersistence": false,
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ],
+    "executionType": "Workflow",
+    "readyForPiP": false,
+    "startsInPiP": false,
+    "mustRestoreAllDependencies": true,
+    "pipType": "ChildSession"
+  },
+  "designOptions": {
+    "projectProfile": "Developement",
+    "outputType": "Process",
+    "libraryOptions": {
+      "includeOriginalXaml": false,
+      "privateWorkflows": []
+    },
+    "processOptions": {
+      "ignoredFiles": []
+    },
+    "fileInfoCollection": [],
+    "modernBehavior": true
+  },
+  "expressionLanguage": "VisualBasic",
+  "entryPoints": [
+    {
+      "filePath": "Main.xaml",
+      "uniqueId": "1681b459-ceff-49a0-b6c4-ee98cc29914c",
+      "input": [],
+      "output": []
+    }
+  ],
+  "isTemplate": false,
+  "templateProjectData": {},
+  "publishData": {},
+  "targetFramework": "Legacy"
+}
