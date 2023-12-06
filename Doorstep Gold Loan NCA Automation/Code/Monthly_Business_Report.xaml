@@ -1,0 +1,261 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Excel_Formatting" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="Arg_Status" Type="InOutArgument(x:Boolean)" />
+    <x:Property Name="In_Config" Type="InOutArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>933,3501</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Excel_Formatting_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="34">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.Database</x:String>
+      <x:String>UiPath.Database.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="36">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Database</AssemblyReference>
+      <AssemblyReference>UiPath.Database.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Monthly_Business_Report" sap:VirtualizedContainerService.HintSize="692,3436" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="630,3314" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <TryCatch.Try>
+        <Sequence sap:VirtualizedContainerService.HintSize="592,3077" sap2010:WorkflowViewState.IdRef="Sequence_14">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="ui:DatabaseConnection" Name="db" />
+            <Variable x:TypeArguments="sd:DataTable" Name="Monthly_Report" />
+            <Variable x:TypeArguments="x:String" Name="Folder_Path" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:KillProcess AppliesTo="{x:Null}" ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="530,142" sap2010:WorkflowViewState.IdRef="KillProcess_2" ProcessName="excel" />
+          <ui:KillProcess AppliesTo="{x:Null}" ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="530,142" sap2010:WorkflowViewState.IdRef="KillProcess_3" ProcessName="excel" />
+          <ui:GetEnvironmentFolder DisplayName="Get Environment Folder" FolderPath="[Folder_Path]" sap:VirtualizedContainerService.HintSize="530,71" sap2010:WorkflowViewState.IdRef="GetEnvironmentFolder_1" SpecialFolder="MyDocuments" />
+          <ui:DatabaseConnect DisplayName="Connect to database" sap:VirtualizedContainerService.HintSize="530,69" sap2010:WorkflowViewState.IdRef="DatabaseConnect_1" ProviderName="System.Data.Odbc" ConnectionString="[In_Config(&quot;Query&quot;).ToString]" DatabaseConnection="[db]">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:DatabaseConnect>
+          <ui:DatabaseTransaction ContinueOnError="{x:Null}" DatabaseConnection="{x:Null}" DisplayName="Start Transaction" ExistingDbConnection="[db]" sap:VirtualizedContainerService.HintSize="530,717" sap2010:WorkflowViewState.IdRef="DatabaseTransaction_1" UseTransaction="True">
+            <ui:DatabaseTransaction.Body>
+              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="496,598" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[Monthly_Report]" DisplayName="Run query" ExistingDbConnection="[db]" sap:VirtualizedContainerService.HintSize="434,98" sap2010:WorkflowViewState.IdRef="ExecuteQuery_1" Sql="-------Monthly Report-----&#xA;select t.BRANCH_ID,&#xA;       t.BRANCH_NAME,&#xA;      TO_CHAR(p.tra_dt) AS TRA_DT,&#xA;      TO_CHAR(P.TRA_DT,'HH:MI:SS AM')AS TRA_TIME,&#xA;     &#xA;       k.cust_id,&#xA;       k.PLEDGE_NO,&#xA;       k.pledge_val,&#xA;       k.act_weight,&#xA;       nvl(k.stone_weight, 0),&#xA;       k.net_weight,&#xA;       k.lnd_rate,&#xA;       k.int_rate,&#xA;       k.scheme_nm,&#xA;       l.inv_id,&#xA;       decode(l.status, '0', 'released', 'live') inv_status,&#xA;       decode(b.status_id, '0', 'settled', 'live') pledge_status,&#xA;       b.close_dt,&#xA;       k.cust_name,&#xA;       case&#xA;         when g.cust_id is null then&#xA;          'NO'&#xA;         else&#xA;          'YES'&#xA;       end as OGL_Status,&#xA;       case&#xA;         when to_date(l.tra_dt) = c.reg_date then&#xA;          'Yes'&#xA;         else&#xA;          'NO'&#xA;       end as new_cust_status,&#xA;       case&#xA;         when to_char(t.BRANCH_ID) = w.station_branchid then&#xA;          'Hub'&#xA;         else&#xA;          'normal'&#xA;       end Branch_status,&#xA;       'DS' lead_source,&#xA;       'Doorstep' type,&#xA;       t.area_name,&#xA;       t.reg_name,&#xA;       f.fzm&#xA;  from mana0809.BRANCH_DTL_NEW t&#xA;  left outer join mana0809.TBL_DOORSTEP_REGION_SPLIT w&#xA;    on (t.BRANCH_ID = w.branch_id), mana0809.pledge_master k&#xA;  left outer join mana0809.tbl_online_gl_cust_mst g&#xA;    on (k.cust_id = g.cust_id and g.status_id = 1), mana0809.pledge_status b,&#xA; mana0809.TBL_GLN_INVENTORY_MASTER l, mana0809.TBL_GL_DOORSTEP_ENTRY p,&#xA; mana0809.customer_detail c,MANA0809.tbl_fzm_master f&#xA; where t.BRANCH_ID = k.branch_id&#xA;   and k.pledge_no = l.plgno&#xA;   and b.inventory = l.inv_id&#xA;   and t.reg_id=f.region_id&#xA;   and b.pledge_no = p.pledge_no&#xA;   and p.status = 1&#xA;   and k.cust_id = c.cust_id&#xA;   and to_date(p.tra_dt) between ADD_MONTHS(TRUNC(SYSDATE, 'MM'),0) and to_date(sysdate)&#xA;union all&#xA;select s.branch_id,&#xA;       bn.BRANCH_NAME,&#xA;       TO_CHAR(s.tra_dt) AS TRA_DT,&#xA;       TO_CHAR(S.TRA_DT,'HH:MI:SS AM')AS TRA_TIME,&#xA;       &#xA;       x.cust_id,&#xA;       x.pledge_no,&#xA;       x.pledge_val,&#xA;       x.act_weight,&#xA;       nvl(x.stone_weight, 0),&#xA;       x.net_weight,&#xA;       x.lnd_rate,&#xA;       x.int_rate,&#xA;       x.scheme_nm,&#xA;       ll.inv_id,&#xA;       decode(ll.status, '0', 'released', 'live') inv_status,&#xA;       decode(bb.status_id, '0', 'settled', 'live') pledge_status,&#xA;       s.cls_dt,&#xA;       s.cust_name,&#xA;       case&#xA;         when g.cust_id is null then&#xA;          'NO'&#xA;         else&#xA;          'YES'&#xA;       end as OGL_Status,&#xA;       case&#xA;         when cust.cust_id is not null then&#xA;          'Yes'&#xA;         else&#xA;          'NO'&#xA;       end as new_cust_status,&#xA;       case&#xA;         when to_char(bn.BRANCH_ID) = w.station_branchid then&#xA;          'Hub'&#xA;         else&#xA;          'normal'&#xA;       end Branch_status,&#xA;       case&#xA;         when s.type_id = 1 then&#xA;          'App'&#xA;         when s.type_id = 2 then&#xA;          'CC'&#xA;         else&#xA;          'Branch'&#xA;       end lead_source,&#xA;       'TakeOver' as type,&#xA;       bn.area_name,&#xA;       bn.reg_name,&#xA;       f.fzm&#xA;  from mana0809.takeoverloan_mst s&#xA;  left outer join (select distinct tt.cust_id&#xA;                     from mana0809.customer tt, mana0809.takeoverloan_mst gg&#xA;                    where tt.cust_id = gg.cust_id&#xA;                      and gg.tra_dt = tt.created_date) cust&#xA;    on (cust.cust_id = s.cust_id)&#xA;  left outer join mana0809.pledge_master x&#xA;    on (s.cust_id = x.cust_id and x.tra_dt = to_date(s.tra_dt) and&#xA;       s.branch_id = x.branch_id)&#xA;  left outer join mana0809.tbl_online_gl_cust_mst g&#xA;    on (x.cust_id = g.cust_id and g.status_id = 1), mana0809.pledge_status bb,&#xA; mana0809.TBL_GLN_INVENTORY_MASTER ll, mana0809.takeoverloan_dtl d,MANA0809.tbl_fzm_master f,&#xA; mana0809.branch_dtl_new bn&#xA;  left outer join mana0809.TBL_DOORSTEP_REGION_SPLIT w&#xA;    on (bn.BRANCH_ID = w.branch_id)&#xA; where s.loan_no = d.loan_no&#xA;   and bb.pledge_no = x.pledge_no&#xA;   and bn.reg_id=f.region_id&#xA;   and bn.BRANCH_ID = s.branch_id&#xA;   and x.pledge_no = ll.plgno&#xA;   and bb.inventory = ll.inv_id&#xA;   and to_date(s.tra_dt) between ADD_MONTHS(TRUNC(SYSDATE, 'MM'),0) and to_date(sysdate);&#xA;">
+                  <ui:ExecuteQuery.Parameters>
+                    <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                  </ui:ExecuteQuery.Parameters>
+                </ui:ExecuteQuery>
+                <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="434,338" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_5" InstanceCachePeriod="3000" WorkbookPath="[Folder_Path+In_Config(&quot;Path1&quot;).ToString]">
+                  <ui:ExcelApplicationScope.Body>
+                    <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="400,219" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:ExcelWriteRange AddHeaders="True" DataTable="[Monthly_Report]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="338,97" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_2" SheetName="Monthly Business" StartingCell="A1" />
+                      </Sequence>
+                    </ActivityAction>
+                  </ui:ExcelApplicationScope.Body>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:ExcelApplicationScope>
+              </Sequence>
+            </ui:DatabaseTransaction.Body>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:DatabaseTransaction>
+          <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="530,1291" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_3" InstanceCachePeriod="3000" WorkbookPath="[Folder_Path+In_Config(&quot;Path1&quot;).ToString]">
+            <ui:ExcelApplicationScope.Body>
+              <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="400,1172" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="ui:GenericValue" Name="Row_count" />
+                    <Variable x:TypeArguments="sd:DataTable" Name="Report3" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:ExcelReadRange AddHeaders="True" DataTable="[Report3]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="338,69" sap2010:WorkflowViewState.IdRef="ExcelReadRange_3" SheetName="Monthly Business">
+                    <ui:ExcelReadRange.Range>
+                      <InArgument x:TypeArguments="x:String">
+                        <Literal x:TypeArguments="x:String" Value="" />
+                      </InArgument>
+                    </ui:ExcelReadRange.Range>
+                  </ui:ExcelReadRange>
+                  <Assign sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_2">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="ui:GenericValue">[Row_count]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="ui:GenericValue">[Report3.Rows.Count+1]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <ui:ExcelWriteCell Cell="AA1" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="338,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_1" SheetName="Monthly Business" Text="NCA AMOUNT" />
+                  <ui:ExcelWriteCell Cell="[&quot;AA2:AA&quot;+Row_count]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="338,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_2" SheetName="Monthly Business" Text="[&quot;=@IF(@T:T=&quot;&quot;Yes&quot;&quot;,G:G,0)&quot;]" />
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;NCA Amount completed&quot;]" />
+                  <ui:ExcelWriteCell Cell="AB1" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="338,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_3" SheetName="Monthly Business" Text="&lt;10k" />
+                  <ui:ExcelWriteCell Cell="[&quot;AB2:AB&quot;+Row_count]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="338,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_4" SheetName="Monthly Business" Text="[&quot;=IF(AND(AA2&gt;0,AA2&lt;10000),AA2,&quot;&quot;&quot;&quot;)&quot;]" />
+                  <ui:KillProcess AppliesTo="{x:Null}" ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="338,142" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="excel" />
+                </Sequence>
+              </ActivityAction>
+            </ui:ExcelApplicationScope.Body>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:ExcelApplicationScope>
+          <ui:DatabaseDisconnect DatabaseConnection="[db]" DisplayName="Disconnect from database" sap:VirtualizedContainerService.HintSize="530,32" sap2010:WorkflowViewState.IdRef="DatabaseDisconnect_1" />
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="530,101" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Monthly report completed&quot;]" />
+          <Assign sap:VirtualizedContainerService.HintSize="530,70" sap2010:WorkflowViewState.IdRef="Assign_3">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Boolean">[Arg_Status]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="596,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence sap:VirtualizedContainerService.HintSize="400,333" sap2010:WorkflowViewState.IdRef="Sequence_15">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Error" Message="[exception.Message]" />
+              <Assign sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_4">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Boolean">[Arg_Status]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                </Assign.Value>
+              </Assign>
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+  </Sequence>
+</Activity>

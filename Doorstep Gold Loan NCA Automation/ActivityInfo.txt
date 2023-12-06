@@ -1,0 +1,41 @@
+===================================================================
+HOW TO USE?
+===================================================================
+1. Pass a valid excel file format (xlsx,xls,xlt,xltx,xlsb etc)
+   in the 'Input Excel File' property
+	-If there are protected excel files the activity will
+	 throw an error.
+-------------------------------------------------------------------
+2. Pass a string value for 'File Name' only or a full 'File Path'
+   for the 'converted' file to be saed.
+	-Use 'Create Directory' checkbox for the activity to
+	 to create a path/directory for you if the path doesn't 
+	 exist.
+	-When this feature is used the user/bot should have 
+	 adequate permissions for folder creation.
+	-Throws exception if enough permissions are not given.
+	-If only folderpath is supplied Output file name will
+	 be borrowed from the input excel name.
+-------------------------------------------------------------------
+3. Select a 'Conversion Format' from the dropdown in the activity.
+	-Leaving it empty will throw an error.
+-------------------------------------------------------------------
+4. Use feature 'Overwrite Files' to resolve file conflicts.
+-------------------------------------------------------------------
+5. Pass a valid 'Sheet Name' - a string variable or value in 
+   double quotes.
+	-'Sheet Name' should be passed when specific sheets 
+	 needs to be saved in a desired format.
+	-Leave the field/property empty if you want the full file
+	 to be converted to a selected format.
+	-Some conversions (.csv, .txt etc) will save the default
+	 sheet as converted format if no sheet name is supplied.
+	-Throws exception if invalid Sheet name is supplied.
+-------------------------------------------------------------------
+6. Use 'Continue On Error' if you don't want the workflow to stop
+   should the conversion fail for reasons unknown.
+-------------------------------------------------------------------
+7. 'Result' is a boolean (True/False) value which gives the status 
+   (Success/Failure) of the conversion if the user wants to leverage
+   the 'Continue on error' feature or otherwise.
+-------------------------------------------------------------------
